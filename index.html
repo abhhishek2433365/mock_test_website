@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExamPro India – Free Mock Tests</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f0e8;--bg2:#ede8dc;--sur:#fff;--sur2:#faf7f2;
+  --bdr:#d8d0c0;--ink:#1a1612;--ink2:#5a5040;--ink3:#8a7d6a;
+  --saf:#FF6B00;--grn:#138808;--grn2:#1aad0a;--nvy:#000080;
+  --gld:#c8860a;--red:#c0392b;
+  --sh:0 4px 24px rgba(26,22,18,.10);--sh2:0 2px 8px rgba(26,22,18,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans',sans-serif;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 15% 15%,rgba(255,107,0,.06),transparent 50%),
+             radial-gradient(circle at 85% 85%,rgba(19,136,8,.06),transparent 50%);}
+body::after{content:'☸';position:fixed;bottom:-30px;right:-30px;font-size:260px;color:rgba(0,0,128,.04);pointer-events:none;z-index:0;line-height:1;}
+header{position:sticky;top:0;z-index:200;background:var(--sur);box-shadow:var(--sh2);
+  border-bottom:3px solid transparent;
+  border-image:linear-gradient(90deg,var(--saf) 33%,#fff 33% 67%,var(--grn) 67%) 1;}
+.hdr{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Baloo 2',sans-serif;font-size:1.5rem;font-weight:800;}
+.lemb{width:36px;height:36px;background:linear-gradient(135deg,var(--saf),var(--gld));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 2px 8px rgba(255,107,0,.3);}
+.logo .s{color:var(--saf);}.logo .g{color:var(--grn);}
+.hbdg{background:linear-gradient(135deg,var(--nvy),#1a1aaa);color:#fff;font-size:.7rem;font-weight:600;padding:5px 12px;border-radius:20px;}
+.scr{display:none;position:relative;z-index:1;}.scr.on{display:block;}
+
+/* HERO */
+.hero{max-width:1100px;margin:0 auto;padding:44px 24px 0;display:grid;grid-template-columns:1fr 400px;gap:44px;align-items:start;}
+@media(max-width:860px){.hero{grid-template-columns:1fr;}}
+.eybrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.25);color:var(--saf);padding:5px 14px;border-radius:20px;font-size:.73rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;}
+.htit{font-family:'Baloo 2',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.08;margin-bottom:14px;}
+.htit .s{color:var(--saf);}.htit .g{color:var(--grn);}.htit .n{color:var(--nvy);}
+.hsub{color:var(--ink2);font-size:1rem;line-height:1.6;margin-bottom:26px;}
+.strow{display:flex;gap:10px;flex-wrap:wrap;}
+.spil{background:var(--sur);border:1px solid var(--bdr);border-radius:50px;padding:6px 13px;font-size:.8rem;color:var(--ink2);display:flex;align-items:center;gap:5px;box-shadow:var(--sh2);}
+.spil strong{color:var(--ink);}
+
+/* CARD */
+.card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:26px;box-shadow:var(--sh);position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--saf),var(--gld),var(--grn));}
+.freebadge{background:rgba(19,136,8,.1);border:1px solid rgba(19,136,8,.25);border-radius:10px;padding:10px 14px;margin-bottom:18px;font-size:.82rem;color:var(--grn);display:flex;align-items:center;gap:8px;}
+
+/* FORM */
+.fg{margin-bottom:18px;}
+.fl{display:block;font-family:'Baloo 2',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;}
+.fl span{color:var(--saf);}
+.sw{position:relative;}.sw::after{content:'▾';position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--ink3);pointer-events:none;}
+select{width:100%;appearance:none;-webkit-appearance:none;background:var(--sur2);border:1.5px solid var(--bdr);border-radius:10px;padding:11px 36px 11px 13px;font-family:'Noto Sans',sans-serif;font-size:.92rem;color:var(--ink);cursor:pointer;transition:border-color .2s;outline:none;}
+select:focus{border-color:var(--saf);box-shadow:0 0 0 3px rgba(255,107,0,.11);}
+select:disabled{opacity:.42;cursor:not-allowed;}
+.istrip{background:var(--sur2);border:1px solid var(--bdr);border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}
+.ti{display:flex;align-items:center;gap:7px;font-size:.78rem;}
+.tiic{width:24px;height:24px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;}
+.tiic.s{background:rgba(255,107,0,.12);}.tiic.g{background:rgba(19,136,8,.12);}.tiic.n{background:rgba(0,0,128,.10);}.tiic.o{background:rgba(200,134,10,.12);}
+.titx{color:var(--ink2);}.titx strong{color:var(--ink);display:block;font-size:.86rem;}
+.sbtn{width:100%;background:linear-gradient(135deg,var(--saf),#e55a00);color:#fff;border:none;border-radius:12px;padding:14px;font-family:'Baloo 2',sans-serif;font-size:.98rem;font-weight:700;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:9px;box-shadow:0 4px 18px rgba(255,107,0,.32);}
+.sbtn:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(255,107,0,.42);}
+.sbtn:disabled{opacity:.38;cursor:not-allowed;transform:none;box-shadow:none;}
+.errb{background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.25);border-radius:10px;padding:11px 14px;color:var(--red);font-size:.84rem;margin-bottom:14px;display:none;}
+
+.cats{max-width:1100px;margin:36px auto 0;padding:0 24px 52px;}
+.ctit{font-family:'Baloo 2',sans-serif;font-size:.71rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
+.cpils{display:flex;gap:8px;flex-wrap:wrap;}
+.cpil{background:var(--sur);border:1px solid var(--bdr);border-radius:7px;padding:5px 11px;font-size:.76rem;color:var(--ink2);display:flex;align-items:center;gap:5px;}
+.dot{width:7px;height:7px;border-radius:50%;}
+
+/* TEST */
+#testScr .wr{max-width:1140px;margin:0 auto;padding:20px;}
+.ttop{display:flex;align-items:center;justify-content:space-between;background:var(--sur);border:1px solid var(--bdr);border-radius:13px;padding:12px 18px;margin-bottom:16px;box-shadow:var(--sh2);flex-wrap:wrap;gap:9px;}
+.tttl{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.95rem;}
+.tsub2{font-size:.76rem;color:var(--ink3);}
+.tchp{display:flex;align-items:center;gap:6px;background:var(--nvy);color:#fff;padding:7px 16px;border-radius:50px;font-family:'Baloo 2',sans-serif;font-size:1.1rem;font-weight:700;transition:background .5s;}
+.tchp.w{background:var(--gld);}.tchp.d{background:var(--red);animation:tp 1s infinite;}
+@keyframes tp{0%,100%{opacity:1}50%{opacity:.6}}
+.tlay{display:grid;grid-template-columns:1fr 290px;gap:16px;align-items:start;}
+@media(max-width:800px){.tlay{grid-template-columns:1fr;}}
+.qpnl{background:var(--sur);border:1px solid var(--bdr);border-radius:14px;padding:24px;box-shadow:var(--sh2);}
+.qhd{display:flex;justify-content:space-between;align-items:center;padding-bottom:13px;border-bottom:1px solid var(--bdr);margin-bottom:16px;}
+.qno{font-family:'Baloo 2',sans-serif;font-size:.76rem;font-weight:700;color:var(--saf);letter-spacing:1px;text-transform:uppercase;}
+.mtag{background:rgba(19,136,8,.1);color:var(--grn);border:1px solid rgba(19,136,8,.2);padding:3px 9px;border-radius:6px;font-size:.71rem;font-weight:600;}
+.qtxt{font-size:1rem;line-height:1.75;margin-bottom:20px;}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:12px;background:var(--sur2);border:1.5px solid var(--bdr);border-radius:10px;padding:12px 15px;cursor:pointer;transition:all .17s;text-align:left;color:var(--ink);font-family:'Noto Sans',sans-serif;font-size:.91rem;line-height:1.5;width:100%;}
+.opt:hover{border-color:var(--saf);background:rgba(255,107,0,.04);}
+.opt.sl{border-color:var(--saf);background:rgba(255,107,0,.08);}
+.obdg{min-width:27px;height:27px;border-radius:6px;background:var(--bdr);color:var(--ink2);display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.76rem;flex-shrink:0;transition:all .17s;}
+.opt.sl .obdg{background:var(--saf);color:#fff;}
+.qnav{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid var(--bdr);flex-wrap:wrap;}
+.nb{background:var(--sur2);border:1.5px solid var(--bdr);color:var(--ink);padding:8px 16px;border-radius:8px;cursor:pointer;font-family:'Noto Sans',sans-serif;font-size:.84rem;font-weight:500;transition:all .17s;}
+.nb:hover{border-color:var(--nvy);color:var(--nvy);}
+.nb:disabled{opacity:.26;cursor:not-allowed;}
+.nb.sub{background:var(--grn);border-color:var(--grn);color:#fff;font-family:'Baloo 2',sans-serif;font-weight:700;}
+.nb.sub:hover{background:var(--grn2);}
+.sdbr{position:sticky;top:76px;}
+.sc2{background:var(--sur);border:1px solid var(--bdr);border-radius:13px;padding:16px;margin-bottom:13px;box-shadow:var(--sh2);}
+.slbl{font-size:.67rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;font-weight:600;}
+.pgrd{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:11px;}
+.pit{text-align:center;background:var(--sur2);border-radius:7px;padding:8px 4px;}
+.pn{font-family:'Baloo 2',sans-serif;font-size:1.2rem;font-weight:800;}
+.pl{font-size:.58rem;color:var(--ink3);margin-top:2px;}
+.pbbg{background:var(--bg2);border-radius:5px;height:5px;overflow:hidden;}
+.pb{height:100%;background:linear-gradient(90deg,var(--saf),var(--grn));border-radius:5px;transition:width .4s;}
+.qmap{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;}
+.qd{aspect-ratio:1;border-radius:4px;background:var(--sur2);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:.54rem;font-weight:600;cursor:pointer;transition:all .14s;color:var(--ink3);}
+.qd:hover{border-color:var(--saf);color:var(--saf);}
+.qd.an{background:rgba(255,107,0,.12);border-color:var(--saf);color:var(--saf);}
+.qd.cu{background:var(--nvy);border-color:var(--nvy);color:#fff;}
+.leg{display:flex;flex-direction:column;gap:5px;margin-top:9px;}
+.lr{display:flex;align-items:center;gap:6px;font-size:.71rem;color:var(--ink3);}
+.ld{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+
+/* RESULT */
+#resScr .wr{max-width:1100px;margin:0 auto;padding:32px 24px 68px;}
+.rher{text-align:center;padding:32px 0 24px;}
+.rring{width:150px;height:150px;margin:0 auto 20px;position:relative;}
+.rring svg{transform:rotate(-90deg);}
+.rbg{fill:none;stroke:var(--bg2);stroke-width:12;}
+.rfil{fill:none;stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset 1.2s ease;}
+.rin{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.rpct{font-family:'Baloo 2',sans-serif;font-size:1.85rem;font-weight:800;}
+.rlb{font-size:.71rem;color:var(--ink3);}
+.rtit{font-family:'Baloo 2',sans-serif;font-size:2rem;font-weight:800;margin-bottom:5px;}
+.rmet{color:var(--ink2);font-size:.91rem;}
+.rcd{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:24px 0;}
+@media(max-width:580px){.rcd{grid-template-columns:1fr;}}
+.rc{border-radius:12px;padding:20px 16px;text-align:center;border:1px solid var(--bdr);}
+.rc.c{background:rgba(19,136,8,.07);border-color:rgba(19,136,8,.2);}
+.rc.w{background:rgba(192,57,43,.07);border-color:rgba(192,57,43,.2);}
+.rc.s{background:rgba(138,125,106,.07);}
+.rcn{font-family:'Baloo 2',sans-serif;font-size:2.6rem;font-weight:800;line-height:1;}
+.rc.c .rcn{color:var(--grn);}.rc.w .rcn{color:var(--red);}.rc.s .rcn{color:var(--ink3);}
+.rcl{font-size:.79rem;color:var(--ink3);margin-top:5px;}
+.rcp{font-size:.74rem;margin-top:3px;font-weight:600;}
+.rc.c .rcp{color:var(--grn);}.rc.w .rcp{color:var(--red);}
+.ss{background:var(--sur);border:1px solid var(--bdr);border-radius:13px;padding:16px 20px;display:flex;gap:24px;flex-wrap:wrap;margin-bottom:24px;box-shadow:var(--sh2);}
+.ssl{font-size:.69rem;color:var(--ink3);margin-bottom:3px;}
+.ssv{font-family:'Baloo 2',sans-serif;font-size:1.5rem;font-weight:800;}
+.shd{font-family:'Baloo 2',sans-serif;font-size:.71rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
+.atbl{width:100%;border-collapse:collapse;background:var(--sur);border-radius:13px;overflow:hidden;box-shadow:var(--sh2);}
+.atbl th{padding:10px 14px;text-align:left;font-size:.68rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink3);background:var(--sur2);border-bottom:1px solid var(--bdr);}
+.atbl td{padding:11px 14px;border-bottom:1px solid rgba(216,208,192,.32);font-size:.84rem;vertical-align:top;}
+.atbl tr:last-child td{border-bottom:none;}
+.atbl tr:hover td{background:var(--sur2);}
+.chip{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:20px;font-size:.69rem;font-weight:700;}
+.chip.c{background:rgba(19,136,8,.1);color:var(--grn);}
+.chip.w{background:rgba(192,57,43,.1);color:var(--red);}
+.chip.s{background:rgba(138,125,106,.1);color:var(--ink3);}
+.rbtn{text-align:center;margin-top:32px;}
+.rbtn button{background:var(--sur);border:1.5px solid var(--bdr);color:var(--ink);padding:11px 28px;border-radius:50px;cursor:pointer;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.91rem;transition:all .2s;display:inline-flex;align-items:center;gap:7px;}
+.rbtn button:hover{border-color:var(--saf);color:var(--saf);}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr">
+    <div class="logo"><div class="lemb">☸</div><span>Exam<span class="s">Pro</span> <span class="g">India</span></span></div>
+    <div class="hbdg">🇮🇳 100% Free Mock Tests</div>
+  </div>
+</header>
+
+<!-- SELECTION -->
+<div id="selScr" class="scr on">
+  <div class="hero">
+    <div>
+      <div class="eybrow">✅ No API Key Needed – Completely Free</div>
+      <div class="htit">Crack <span class="s">India's</span><br>Toughest <span class="n">Exams</span><br><span class="g">Faster.</span></div>
+      <div class="hsub">100-question mock tests for 15+ major Indian competitive exams. Real exam-pattern questions, 1.5-hour timer, instant results — all offline, completely free.</div>
+      <div class="strow">
+        <div class="spil">✅ <strong>100% Free</strong></div>
+        <div class="spil">📴 <strong>No Internet</strong> needed</div>
+        <div class="spil">❓ <strong>100 MCQs</strong> per test</div>
+        <div class="spil">⏱️ <strong>1.5 hr</strong> timer</div>
+        <div class="spil">🔀 <strong>Random</strong> each time</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="freebadge">🎉 No sign-up, no API key, no internet required — works offline!</div>
+      <div id="eb" class="errb"></div>
+      <div class="fg">
+        <label class="fl"><span>01</span> — Select Exam</label>
+        <div class="sw"><select id="xsel" onchange="onX()"><option value="">— Choose your exam —</option></select></div>
+      </div>
+      <div class="fg">
+        <label class="fl"><span>02</span> — Select Subject</label>
+        <div class="sw"><select id="ssel" disabled onchange="onS()"><option value="">— First select an exam —</option></select></div>
+      </div>
+      <div class="istrip">
+        <div class="ti"><div class="tiic s">❓</div><div class="titx"><strong>100</strong>Questions</div></div>
+        <div class="ti"><div class="tiic n">⏱️</div><div class="titx"><strong>90 Min</strong>Duration</div></div>
+        <div class="ti"><div class="tiic g">✓</div><div class="titx"><strong>+4 / −1</strong>Marking</div></div>
+        <div class="ti"><div class="tiic o">🔀</div><div class="titx"><strong>Random</strong>Each Time</div></div>
+      </div>
+      <button class="sbtn" id="goBtn" disabled onclick="begin()">🚀 Start Mock Test</button>
+    </div>
+  </div>
+  <div class="cats">
+    <div class="ctit">Available Exam Categories</div>
+    <div class="cpils">
+      <div class="cpil"><div class="dot" style="background:var(--saf)"></div>Civil Services (UPSC)</div>
+      <div class="cpil"><div class="dot" style="background:var(--nvy)"></div>Defence &amp; Police</div>
+      <div class="cpil"><div class="dot" style="background:#0891b2"></div>Railways (RRB)</div>
+      <div class="cpil"><div class="dot" style="background:var(--gld)"></div>Banking (IBPS/SBI)</div>
+      <div class="cpil"><div class="dot" style="background:var(--grn)"></div>SSC Exams</div>
+      <div class="cpil"><div class="dot" style="background:#8b5cf6"></div>Engineering (JEE/GATE)</div>
+      <div class="cpil"><div class="dot" style="background:#dc2626"></div>Medical (NEET)</div>
+      <div class="cpil"><div class="dot" style="background:#d97706"></div>Teaching (CTET/UPTET)</div>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div id="testScr" class="scr">
+  <div class="wr">
+    <div class="ttop">
+      <div><div class="tttl" id="ttl">Mock Test</div><div class="tsub2" id="tsub"></div></div>
+      <div class="tchp" id="tchp">⏱ 01:30:00</div>
+    </div>
+    <div class="tlay">
+      <div class="qpnl">
+        <div class="qhd"><span class="qno" id="qno">Q1 / 100</span><span class="mtag">+4 Correct · −1 Wrong</span></div>
+        <div class="qtxt" id="qtxt"></div>
+        <div class="opts" id="opts"></div>
+        <div class="qnav">
+          <button class="nb" id="pb" onclick="nav(-1)">← Prev</button>
+          <button class="nb" onclick="clr()">✕ Clear</button>
+          <button class="nb" id="nb2" onclick="nav(1)">Next →</button>
+          <button class="nb sub" onclick="cfSub()">Submit ✓</button>
+        </div>
+      </div>
+      <div class="sdbr">
+        <div class="sc2">
+          <div class="slbl">Progress</div>
+          <div class="pgrd">
+            <div class="pit"><div class="pn" id="pa" style="color:var(--saf)">0</div><div class="pl">Answered</div></div>
+            <div class="pit"><div class="pn" id="pr" style="color:var(--nvy)">100</div><div class="pl">Remaining</div></div>
+            <div class="pit"><div class="pn" id="pv" style="color:var(--grn)">1</div><div class="pl">Visited</div></div>
+          </div>
+          <div class="pbbg"><div class="pb" id="pbar" style="width:0%"></div></div>
+        </div>
+        <div class="sc2">
+          <div class="slbl">Question Map</div>
+          <div class="qmap" id="qmap"></div>
+          <div class="leg">
+            <div class="lr"><div class="ld" style="background:var(--nvy)"></div>Current</div>
+            <div class="lr"><div class="ld" style="background:rgba(255,107,0,.15);border:1px solid var(--saf)"></div>Answered</div>
+            <div class="lr"><div class="ld" style="background:var(--sur2);border:1px solid var(--bdr)"></div>Not visited</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="resScr" class="scr">
+  <div class="wr">
+    <div class="rher">
+      <div class="rring">
+        <svg width="150" height="150" viewBox="0 0 150 150">
+          <circle class="rbg" cx="75" cy="75" r="63"/>
+          <circle class="rfil" id="rf" cx="75" cy="75" r="63" stroke-dasharray="396" stroke-dashoffset="396"/>
+        </svg>
+        <div class="rin"><div class="rpct" id="rpct">0%</div><div class="rlb">Score</div></div>
+      </div>
+      <div class="rtit" id="rtit">Test Complete!</div>
+      <div class="rmet" id="rmet"></div>
+    </div>
+    <div class="rcd">
+      <div class="rc c"><div class="rcn" id="rcc">0</div><div class="rcl">✓ Correct</div><div class="rcp" id="rccp"></div></div>
+      <div class="rc w"><div class="rcn" id="rcw">0</div><div class="rcl">✗ Wrong</div><div class="rcp" id="rcwp"></div></div>
+      <div class="rc s"><div class="rcn" id="rcs">0</div><div class="rcl">— Not Attempted</div><div class="rcp" style="color:var(--ink3)">0 marks deducted</div></div>
+    </div>
+    <div class="ss">
+      <div><div class="ssl">Total Score</div><div class="ssv" style="color:var(--saf)" id="sstot">—</div></div>
+      <div><div class="ssl">Max Marks</div><div class="ssv">400</div></div>
+      <div><div class="ssl">Accuracy</div><div class="ssv" style="color:var(--grn)" id="ssacc">—</div></div>
+      <div><div class="ssl">Time Used</div><div class="ssv" id="sstm">—</div></div>
+    </div>
+    <div class="shd">Detailed Answer Review</div>
+    <div style="overflow-x:auto">
+      <table class="atbl">
+        <thead><tr><th>#</th><th>Question</th><th>Your Answer</th><th>Correct Answer</th><th>Result</th></tr></thead>
+        <tbody id="abdy"></tbody>
+      </table>
+    </div>
+    <div class="rbtn"><button onclick="retake()">← Take Another Test</button></div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════
+//  QUESTION BANK  — 150+ questions per major subject
+//  Each question: {q, opts:[A,B,C,D], ans:0-based index}
+// ══════════════════════════════════════════════════════════
+const QB = {
+
+// ─── GENERAL KNOWLEDGE & CURRENT AFFAIRS ───────────────
+"General Knowledge & Current Affairs": [
+  {q:"Who is known as the 'Father of the Indian Nation'?",opts:["Jawaharlal Nehru","Mahatma Gandhi","Sardar Patel","B.R. Ambedkar"],ans:1},
+  {q:"Which article of the Indian Constitution abolishes untouchability?",opts:["Article 14","Article 17","Article 21","Article 32"],ans:1},
+  {q:"The Headquarters of ISRO is located in:",opts:["Mumbai","Hyderabad","Bengaluru","Chennai"],ans:2},
+  {q:"Who wrote the Indian National Anthem 'Jana Gana Mana'?",opts:["Bankim Chandra Chatterjee","Rabindranath Tagore","Sarojini Naidu","Subramania Bharati"],ans:1},
+  {q:"Which river is known as the 'Sorrow of Bihar'?",opts:["Ganga","Kosi","Gandak","Son"],ans:1},
+  {q:"The 'Pradhan Mantri Awas Yojana' aims to provide:",opts:["Employment","Housing","Food security","Education"],ans:1},
+  {q:"Which state has the longest coastline in India?",opts:["Maharashtra","Andhra Pradesh","Gujarat","Tamil Nadu"],ans:2},
+  {q:"The term 'Zero Hour' in Indian Parliament refers to:",opts:["First hour of Parliament session","Time for Question Hour","Time immediately after Question Hour","Midnight session"],ans:2},
+  {q:"Who was the first woman President of India?",opts:["Sarojini Naidu","Indira Gandhi","Pratibha Patil","Sonia Gandhi"],ans:2},
+  {q:"Which is the largest district of Uttar Pradesh by area?",opts:["Lakhimpur Kheri","Sonbhadra","Allahabad","Agra"],ans:0},
+  {q:"The 'One District One Product' scheme was launched by which state?",opts:["Gujarat","Maharashtra","Uttar Pradesh","Rajasthan"],ans:2},
+  {q:"Project Tiger was launched in India in which year?",opts:["1970","1973","1975","1980"],ans:1},
+  {q:"Which constitutional amendment added 'Secular' and 'Socialist' to the Preamble?",opts:["42nd","44th","52nd","61st"],ans:0},
+  {q:"Headquarter of UNO is located in:",opts:["Geneva","London","New York","Paris"],ans:2},
+  {q:"India's first satellite was named:",opts:["Bhaskara","Rohini","Aryabhata","INSAT-1A"],ans:2},
+  {q:"The National Song of India 'Vande Mataram' was written by:",opts:["Rabindranath Tagore","Bankim Chandra Chatterjee","Subramania Bharati","Maithili Sharan Gupt"],ans:1},
+  {q:"Which country is the largest producer of milk in the world?",opts:["USA","China","India","Brazil"],ans:2},
+  {q:"The Durand Line separates:",opts:["India and China","India and Pakistan","Afghanistan and Pakistan","India and Bangladesh"],ans:2},
+  {q:"Which is the smallest state of India by area?",opts:["Sikkim","Goa","Tripura","Manipur"],ans:1},
+  {q:"NABARD stands for:",opts:["National Bank for Agriculture and Rural Development","National Board for Agro and Rural Development","National Bureau for Agricultural Research & Development","None of these"],ans:0},
+  {q:"The G20 summit 2023 was held in:",opts:["Mumbai","New Delhi","Bengaluru","Chennai"],ans:1},
+  {q:"Which country hosted the 2024 Summer Olympics?",opts:["Japan","France","USA","Australia"],ans:1},
+  {q:"Operation Sindoor was conducted by India in which year?",opts:["2023","2024","2025","2022"],ans:2},
+  {q:"Who is the Chief Justice of India as of 2025?",opts:["D.Y. Chandrachud","Sanjiv Khanna","N.V. Ramana","U.U. Lalit"],ans:1},
+  {q:"The Statue of Unity is dedicated to:",opts:["Mahatma Gandhi","Jawaharlal Nehru","Sardar Vallabhbhai Patel","B.R. Ambedkar"],ans:2},
+  {q:"Which state is called the 'Rice Bowl of India'?",opts:["Punjab","Uttar Pradesh","Andhra Pradesh","West Bengal"],ans:2},
+  {q:"The Chipko Movement was related to:",opts:["Water conservation","Forest conservation","Soil conservation","Wildlife conservation"],ans:1},
+  {q:"Which article of the Indian Constitution deals with the Right to Education?",opts:["Article 21","Article 21A","Article 22","Article 29"],ans:1},
+  {q:"The National Human Rights Commission (NHRC) was established in:",opts:["1990","1991","1993","1995"],ans:2},
+  {q:"India's first nuclear power station was set up at:",opts:["Narora","Rawatbhata","Tarapur","Kalpakkam"],ans:2},
+],
+
+// ─── GENERAL HINDI ─────────────────────────────────────
+"General Hindi": [
+  {q:"'आकाश' का पर्यायवाची शब्द है:",opts:["नभ","जल","धरा","पवन"],ans:0},
+  {q:"'विद्यालय' शब्द का संधि विच्छेद है:",opts:["विद्या + लय","विद्या + आलय","विद्य + आलय","विद्या + लय"],ans:1},
+  {q:"'राम ने आम खाया' में कारक है:",opts:["कर्ता कारक","कर्म कारक","करण कारक","सम्प्रदान कारक"],ans:0},
+  {q:"'सूर्य' का स्त्रीलिंग है:",opts:["सूर्या","सूर्यी","सूर्यानी","सूर्य का स्त्रीलिंग नहीं होता"],ans:3},
+  {q:"निम्नलिखित में से कौन सा शब्द तद्भव है?",opts:["अग्नि","आग","पावक","वह्नि"],ans:1},
+  {q:"'घर का भेदी लंका ढाए' लोकोक्ति का अर्थ है:",opts:["घर की जानकारी बाहर देना","आंतरिक दुश्मन से नुकसान होना","लंका जलाना","राज़ रखना"],ans:1},
+  {q:"'यथाशक्ति' में कौन सा समास है?",opts:["तत्पुरुष","अव्ययीभाव","द्वन्द्व","बहुव्रीहि"],ans:1},
+  {q:"'निर्दोष' में उपसर्ग है:",opts:["नि","निर","निर्","नी"],ans:2},
+  {q:"'कमल' का पर्यायवाची नहीं है:",opts:["अंबुज","पंकज","सरोज","अरविंद"],ans:3},
+  {q:"हिंदी की लिपि है:",opts:["रोमन","देवनागरी","गुरुमुखी","ब्राह्मी"],ans:1},
+  {q:"'मोर' का स्त्रीलिंग है:",opts:["मोरी","मोरनी","मोरिन","मोरा"],ans:1},
+  {q:"'संगम' का विलोम शब्द है:",opts:["विरह","वियोग","वियोजन","विभाजन"],ans:2},
+  {q:"'पर्वत' का पर्यायवाची है:",opts:["नग","नद","नभ","नाग"],ans:0},
+  {q:"'जो सब कुछ जानता हो' के लिए एक शब्द है:",opts:["सर्वज्ञ","सर्वशक्तिमान","सर्वव्यापी","सर्वोच्च"],ans:0},
+  {q:"'चंद्रमा' का पर्यायवाची नहीं है:",opts:["शशि","सुधाकर","हिमांशु","मयंक"],ans:1},
+  {q:"'अनुचित' का विलोम शब्द है:",opts:["उचित","सुचित","योग्य","सही"],ans:0},
+  {q:"'राष्ट्र' शब्द की संज्ञा है:",opts:["व्यक्तिवाचक","जातिवाचक","भाववाचक","द्रव्यवाचक"],ans:1},
+  {q:"क्रिया के मूल रूप को क्या कहते हैं?",opts:["धातु","क्रिया","विभक्ति","प्रत्यय"],ans:0},
+  {q:"'वह पुस्तक पढ़ता है' में कौन सा काल है?",opts:["भूतकाल","वर्तमान काल","भविष्यकाल","संदिग्ध काल"],ans:1},
+  {q:"'आँख का तारा' मुहावरे का अर्थ है:",opts:["आँख में तकलीफ","बहुत प्रिय","आँख की पुतली","नेत्र ज्योति"],ans:1},
+  {q:"शुद्ध वर्तनी वाला शब्द है:",opts:["परिक्षा","परीक्षा","परिछा","परिक्षा"],ans:1},
+  {q:"'सुबह' का तत्सम रूप है:",opts:["प्रभात","प्रातः","उषा","भोर"],ans:1},
+  {q:"'हाथ मलना' मुहावरे का अर्थ है:",opts:["हाथ धोना","पछताना","प्रसन्न होना","काम करना"],ans:1},
+  {q:"'विद्यार्थी' का संधि विच्छेद है:",opts:["विद्या + अर्थी","विद्य + अर्थी","विद्यार् + थी","विद्या + रथी"],ans:0},
+  {q:"'कठिन' का विलोम है:",opts:["सरल","कोमल","मृदु","सुलभ"],ans:0},
+  {q:"'रात्रि' का पर्यायवाची है:",opts:["दिवस","निशा","संध्या","प्रभात"],ans:1},
+  {q:"'दही' में कौन सा प्रत्यय है?",opts:["ही","दह","द","इ"],ans:0},
+  {q:"निम्न में तत्सम शब्द है:",opts:["काम","दूध","अग्नि","आग"],ans:2},
+  {q:"'जो बीत गई सो बात गई' पंक्ति किसकी है?",opts:["हरिवंशराय बच्चन","सुमित्रानंदन पंत","महादेवी वर्मा","रामधारी सिंह दिनकर"],ans:0},
+  {q:"'दशानन' शब्द में समास है:",opts:["द्विगु","बहुव्रीहि","कर्मधारय","तत्पुरुष"],ans:1},
+],
+
+// ─── MATHEMATICS ───────────────────────────────────────
+"Mathematics": [
+  {q:"If 15% of x = 20% of y, then x:y is:",opts:["3:4","4:3","2:3","3:2"],ans:1},
+  {q:"The LCM of 12, 15 and 20 is:",opts:["60","120","180","240"],ans:0},
+  {q:"A train 150 m long passes a pole in 15 seconds. Its speed is:",opts:["36 km/h","10 km/h","54 km/h","45 km/h"],ans:0},
+  {q:"The average of first 50 natural numbers is:",opts:["25","25.5","26","24.5"],ans:1},
+  {q:"If A:B = 2:3 and B:C = 4:5, then A:B:C is:",opts:["8:12:15","2:3:5","6:9:12","4:6:10"],ans:0},
+  {q:"What is 30% of 450?",opts:["130","135","140","145"],ans:1},
+  {q:"A shopkeeper sells an article for ₹1200 at 20% profit. The cost price is:",opts:["₹960","₹1000","₹900","₹1100"],ans:1},
+  {q:"The HCF of 36 and 48 is:",opts:["6","8","12","18"],ans:2},
+  {q:"Simple Interest on ₹5000 at 8% per annum for 3 years is:",opts:["₹1200","₹1100","₹1000","₹1300"],ans:0},
+  {q:"If 4x - 5 = 11, then x = ?",opts:["3","4","5","6"],ans:1},
+  {q:"The area of a circle with radius 7 cm is (π = 22/7):",opts:["144 cm²","154 cm²","164 cm²","174 cm²"],ans:1},
+  {q:"A can do a work in 10 days and B in 15 days. Together they finish in:",opts:["5 days","6 days","8 days","4 days"],ans:1},
+  {q:"What is the cube root of 512?",opts:["6","7","8","9"],ans:2},
+  {q:"15³ = ?",opts:["3375","3175","3475","3275"],ans:0},
+  {q:"The perimeter of a rectangle with length 8 cm and breadth 5 cm is:",opts:["26 cm","30 cm","40 cm","24 cm"],ans:0},
+  {q:"If the ratio of boys to girls in a class is 3:2 and there are 30 boys, how many girls are there?",opts:["15","18","20","25"],ans:2},
+  {q:"The value of √(0.0081) is:",opts:["0.09","0.9","0.009","0.99"],ans:0},
+  {q:"What is 25% of 25% of 400?",opts:["25","50","100","75"],ans:0},
+  {q:"Pipe A fills a tank in 6 hours, Pipe B in 4 hours. Together they fill in:",opts:["2 hr 24 min","2 hr 30 min","3 hours","2 hours"],ans:0},
+  {q:"The selling price of an article is ₹900 after 10% discount. Its marked price is:",opts:["₹990","₹1000","₹1100","₹980"],ans:1},
+  {q:"If 12 men can complete a work in 8 days, 8 men will complete it in:",opts:["10 days","12 days","14 days","16 days"],ans:1},
+  {q:"Speed of a boat in still water is 10 km/h, stream speed 2 km/h. Downstream speed is:",opts:["8 km/h","10 km/h","12 km/h","14 km/h"],ans:2},
+  {q:"Sum of angles of a triangle is:",opts:["90°","180°","270°","360°"],ans:1},
+  {q:"What is the value of sin 90°?",opts:["0","1","1/2","√3/2"],ans:1},
+  {q:"In 2 years at 10% compound interest, ₹1000 becomes:",opts:["₹1200","₹1210","₹1100","₹1220"],ans:1},
+  {q:"A number when divided by 5 gives remainder 3. That number can be:",opts:["18","23","29","34"],ans:1},
+  {q:"The median of 3, 7, 1, 9, 5 is:",opts:["5","7","3","1"],ans:0},
+  {q:"The volume of a cube with side 4 cm is:",opts:["64 cm³","32 cm³","48 cm³","16 cm³"],ans:0},
+  {q:"If 3x + 7 = 22, then x is:",opts:["5","4","3","6"],ans:0},
+  {q:"What is 1/4 + 1/6?",opts:["1/10","5/12","2/12","7/24"],ans:1},
+],
+
+// ─── GENERAL SCIENCE ────────────────────────────────────
+"General Science": [
+  {q:"The chemical formula of water is:",opts:["H2O2","HO","H2O","H3O"],ans:2},
+  {q:"The unit of electric current is:",opts:["Volt","Watt","Ampere","Ohm"],ans:2},
+  {q:"Which gas is used in electric bulbs?",opts:["Oxygen","Nitrogen","Argon","Hydrogen"],ans:2},
+  {q:"The process of conversion of liquid into gas is called:",opts:["Condensation","Evaporation","Sublimation","Distillation"],ans:1},
+  {q:"The largest organ of the human body is:",opts:["Liver","Heart","Brain","Skin"],ans:3},
+  {q:"DNA stands for:",opts:["Deoxyribonucleic Acid","Diribonucleic Acid","Deoxyribonitric Acid","Dinitrolic Acid"],ans:0},
+  {q:"Which planet is called the 'Red Planet'?",opts:["Venus","Jupiter","Mars","Saturn"],ans:2},
+  {q:"Newton's first law of motion is also called:",opts:["Law of Acceleration","Law of Inertia","Law of Action-Reaction","Law of Gravity"],ans:1},
+  {q:"The speed of light in vacuum is approximately:",opts:["3 × 10⁸ m/s","3 × 10⁶ m/s","3 × 10¹⁰ m/s","3 × 10⁴ m/s"],ans:0},
+  {q:"Which vitamin is produced by the human body on exposure to sunlight?",opts:["Vitamin A","Vitamin B","Vitamin C","Vitamin D"],ans:3},
+  {q:"The pH of pure water is:",opts:["0","7","14","5"],ans:1},
+  {q:"Photosynthesis in plants occurs in:",opts:["Mitochondria","Nucleus","Chloroplast","Ribosome"],ans:2},
+  {q:"The human heart has how many chambers?",opts:["2","3","4","5"],ans:2},
+  {q:"Which is the hardest natural substance?",opts:["Iron","Gold","Diamond","Platinum"],ans:2},
+  {q:"Sound cannot travel through:",opts:["Water","Air","Vacuum","Metal"],ans:2},
+  {q:"The atomic number of Carbon is:",opts:["6","8","12","14"],ans:0},
+  {q:"Which blood group is called 'Universal Donor'?",opts:["A","B","AB","O"],ans:3},
+  {q:"The boiling point of water at sea level is:",opts:["90°C","95°C","100°C","105°C"],ans:2},
+  {q:"Malaria is caused by:",opts:["Bacteria","Virus","Protozoa","Fungi"],ans:2},
+  {q:"The chemical symbol of Gold is:",opts:["Go","Gd","Au","Ag"],ans:2},
+  {q:"Which organ produces insulin?",opts:["Liver","Pancreas","Kidney","Stomach"],ans:1},
+  {q:"The SI unit of force is:",opts:["Joule","Watt","Newton","Pascal"],ans:2},
+  {q:"Ozone layer is present in which layer of atmosphere?",opts:["Troposphere","Stratosphere","Mesosphere","Thermosphere"],ans:1},
+  {q:"Which is the heaviest planet in the solar system?",opts:["Saturn","Uranus","Neptune","Jupiter"],ans:3},
+  {q:"The process by which plants lose water through leaves is:",opts:["Transpiration","Respiration","Photosynthesis","Absorption"],ans:0},
+  {q:"Deficiency of Vitamin C causes:",opts:["Rickets","Scurvy","Night blindness","Beriberi"],ans:1},
+  {q:"The number of bones in an adult human body is:",opts:["200","206","212","220"],ans:1},
+  {q:"Which part of the plant absorbs water from soil?",opts:["Leaves","Stem","Root hair","Bark"],ans:2},
+  {q:"The element with the highest melting point is:",opts:["Iron","Gold","Tungsten","Platinum"],ans:2},
+  {q:"Light year is a unit of:",opts:["Time","Speed","Distance","Energy"],ans:2},
+],
+
+// ─── REASONING ──────────────────────────────────────────
+"Reasoning": [
+  {q:"If A = 1, B = 2, C = 3... then FACE = ?",opts:["6+1+3+5","6+1+3+4","5+1+3+4","6+2+3+4"],ans:0},
+  {q:"Find the odd one out: Cat, Dog, Cow, Eagle",opts:["Cat","Dog","Cow","Eagle"],ans:3},
+  {q:"2, 6, 18, 54, ?",opts:["108","162","216","270"],ans:1},
+  {q:"ABCD : DCBA :: MNOP : ?",opts:["PONM","PMON","OPNM","NOPM"],ans:0},
+  {q:"If INDIA is coded as JOEJB, how is CHINA coded?",opts:["DIJOB","DIJQB","DIJOA","DIJNA"],ans:1},
+  {q:"In a row of students, Riya is 7th from left and 10th from right. Total students are:",opts:["16","17","15","18"],ans:0},
+  {q:"A is sister of B. B is wife of C. C is son of D. How is A related to D?",opts:["Daughter-in-law","Daughter","Son","None"],ans:1},
+  {q:"Today is Monday. What day will be after 65 days?",opts:["Wednesday","Thursday","Friday","Saturday"],ans:2},
+  {q:"Find the missing number: 3, 9, 27, __, 243",opts:["54","81","72","90"],ans:1},
+  {q:"If North becomes West and West becomes South, then East becomes:",opts:["North","South","East","West"],ans:0},
+  {q:"Which number comes next: 1, 4, 9, 16, 25, ?",opts:["30","36","35","32"],ans:1},
+  {q:"Book : Library :: Painting : ?",opts:["Museum","Artist","Gallery","Canvas"],ans:2},
+  {q:"Rahul walks 10 km East, turns South 5 km, then West 10 km. How far from start?",opts:["5 km South","5 km North","10 km South","10 km East"],ans:0},
+  {q:"Find odd: 2, 3, 5, 7, 9, 11",opts:["3","5","9","11"],ans:2},
+  {q:"AZ, BY, CX, DW, ?",opts:["EV","EW","FV","EU"],ans:0},
+  {q:"All cats are dogs. All dogs are mice. Therefore:",opts:["All cats are mice","All mice are cats","Some cats are mice","None"],ans:0},
+  {q:"PENCIL : NEPLCI :: TABLE : ?",opts:["ALBET","ELBET","ALBTE","ELBAT"],ans:0},
+  {q:"5 + 3 = 28, 9 + 1 = 810, 8 + 6 = 214, then 5 + 4 = ?",opts:["19","120","12","91"],ans:0},
+  {q:"Pointing to a photo, Ram says 'She is the mother of my father's only grandson.' Who is in photo?",opts:["Ram's wife","Ram's sister","Ram's mother","Ram's daughter"],ans:0},
+  {q:"Clock shows 3:15. Angle between hands is:",opts:["0°","7.5°","52.5°","82.5"],ans:1},
+  {q:"36 : 6 :: 64 : ?",opts:["6","7","8","9"],ans:2},
+  {q:"Arrange: Morning, Night, Noon, Evening, Dawn",opts:["Dawn, Morning, Noon, Evening, Night","Morning, Dawn, Noon, Night, Evening","Dawn, Noon, Morning, Evening, Night","Night, Dawn, Morning, Noon, Evening"],ans:0},
+  {q:"If WATER = 25163, then EARTH = ?",opts:["13624","13264","31264","31624"],ans:0},
+  {q:"Cube has 6 faces. Cuboid also has:",opts:["4","6","8","10"],ans:1},
+  {q:"Doctor : Hospital :: Teacher : ?",opts:["Student","School","Book","Classroom"],ans:1},
+  {q:"Find the missing: ACE, BDF, CEG, ?",opts:["DFH","DEG","EFG","DGH"],ans:0},
+  {q:"A person is 40 years old. 10 years back he was 3 times his son's age. Son's present age:",opts:["20","15","13","18"],ans:1},
+  {q:"If 20 + 20 = 400, 10 + 10 = 100, then 15 + 15 = ?",opts:["225","250","150","300"],ans:0},
+  {q:"Pick the odd: January, March, May, June, July",opts:["January","March","June","July"],ans:2},
+  {q:"Mirror image: 'AMBULANCE' appears as?",opts:["AMBULANCE reversed","ECNALUBMA","ANCE AMBUL","None"],ans:1},
+],
+
+// ─── INDIAN HISTORY ─────────────────────────────────────
+"Indian History": [
+  {q:"The First Battle of Panipat was fought in:",opts:["1526","1556","1576","1600"],ans:0},
+  {q:"Who founded the Mughal Empire in India?",opts:["Humayun","Akbar","Babur","Timur"],ans:2},
+  {q:"The Quit India Movement was launched in:",opts:["1940","1941","1942","1943"],ans:2},
+  {q:"Jallianwala Bagh Massacre occurred in:",opts:["1917","1918","1919","1920"],ans:2},
+  {q:"The Indian National Congress was founded in:",opts:["1880","1885","1890","1895"],ans:1},
+  {q:"Who was the first Governor-General of free India?",opts:["Lord Mountbatten","C. Rajagopalachari","Lord Wavell","Lord Linlithgow"],ans:0},
+  {q:"The Maurya Empire was founded by:",opts:["Ashoka","Chandragupta Maurya","Bindusara","Chanakya"],ans:1},
+  {q:"Akbar's Navratna did NOT include:",opts:["Birbal","Todarmal","Man Singh","Rana Pratap"],ans:3},
+  {q:"The Revolt of 1857 began from:",opts:["Delhi","Lucknow","Meerut","Kanpur"],ans:2},
+  {q:"Simon Commission came to India in:",opts:["1926","1927","1928","1929"],ans:2},
+  {q:"Who gave the slogan 'Do or Die'?",opts:["Bhagat Singh","Subhas Chandra Bose","Mahatma Gandhi","Bal Gangadhar Tilak"],ans:2},
+  {q:"The Dandi March was related to:",opts:["Indigo","Salt","Cotton","Wheat"],ans:1},
+  {q:"Chandragupta Maurya defeated:",opts:["Alexander","Seleucus Nicator","Darius I","Cyrus"],ans:1},
+  {q:"'Swaraj is my birthright' was said by:",opts:["Mahatma Gandhi","Gopal Krishna Gokhale","Bal Gangadhar Tilak","Lala Lajpat Rai"],ans:2},
+  {q:"The famous Ajanta caves are associated with:",opts:["Jainism","Hinduism","Buddhism","Islam"],ans:2},
+  {q:"The Rowlatt Act was passed in:",opts:["1917","1919","1920","1921"],ans:1},
+  {q:"Partition of Bengal took place in:",opts:["1903","1905","1907","1909"],ans:1},
+  {q:"Who started the 'Young Bengal Movement'?",opts:["Henry Louis Vivian Derozio","Ram Mohan Roy","Ishwar Chandra Vidyasagar","Keshab Chandra Sen"],ans:0},
+  {q:"The Treaty of Allahabad was signed in:",opts:["1765","1770","1775","1780"],ans:0},
+  {q:"The last Mughal Emperor was:",opts:["Akbar II","Muhammad Shah","Bahadur Shah Zafar","Alamgir II"],ans:2},
+  {q:"The Third Battle of Panipat was fought between:",opts:["Mughals and Afghans","Marathas and Afghans","Marathas and British","Mughals and Marathas"],ans:1},
+  {q:"Who discovered the Sea Route to India?",opts:["Columbus","Magellan","Vasco da Gama","Amerigo Vespucci"],ans:2},
+  {q:"The Chola dynasty was famous for its:",opts:["Land administration","Naval power","Cavalry","Architecture only"],ans:1},
+  {q:"Harshavardhana ruled from which capital?",opts:["Ujjain","Pataliputra","Kanauj","Taxila"],ans:2},
+  {q:"The Bhakti Movement was primarily a movement of:",opts:["Social reform","Religious reform","Political reform","Economic reform"],ans:1},
+  {q:"Who wrote 'Indica'?",opts:["Fa Hien","Megasthenes","Hiuen Tsang","Marco Polo"],ans:1},
+  {q:"The East India Company was established in:",opts:["1600","1650","1700","1750"],ans:0},
+  {q:"Battle of Plassey took place in:",opts:["1757","1760","1764","1770"],ans:0},
+  {q:"The Permanent Settlement was introduced by:",opts:["Warren Hastings","Lord Cornwallis","Lord Dalhousie","Lord Ripon"],ans:1},
+  {q:"Who assassinated Mahatma Gandhi?",opts:["Nathuram Godse","Veer Savarkar","Rashtriya Swayamsevak Sangh","N.V. Gadgil"],ans:0},
+],
+
+// ─── INDIAN POLITY & CONSTITUTION ───────────────────────
+"Indian Polity & Constitution": [
+  {q:"The Indian Constitution was adopted on:",opts:["15 August 1947","26 January 1950","26 November 1949","2 October 1950"],ans:2},
+  {q:"The Preamble of the Indian Constitution begins with:",opts:["We the People","We the Citizens","We the Indians","We the Nation"],ans:0},
+  {q:"How many Fundamental Rights are there in the Indian Constitution?",opts:["5","6","7","8"],ans:1},
+  {q:"The President of India is elected by:",opts:["Direct election","Electoral College","Parliament","Rajya Sabha"],ans:1},
+  {q:"Which article provides Right to Constitutional Remedies?",opts:["Article 19","Article 21","Article 32","Article 22"],ans:2},
+  {q:"Rajya Sabha is a:",opts:["Permanent house","Temporary house","Both A and B","None"],ans:0},
+  {q:"The minimum age to become the Prime Minister of India is:",opts:["21 years","25 years","30 years","35 years"],ans:1},
+  {q:"Under which article can the President impose National Emergency?",opts:["Article 352","Article 356","Article 360","Article 365"],ans:0},
+  {q:"How many schedules are there in the Indian Constitution?",opts:["8","10","12","14"],ans:2},
+  {q:"The 73rd Constitutional Amendment relates to:",opts:["Panchayati Raj","Urban local bodies","Fundamental duties","Concurrent list"],ans:0},
+  {q:"Who is the ex-officio Chairman of Rajya Sabha?",opts:["President","Prime Minister","Vice President","Speaker"],ans:2},
+  {q:"DPSP stands for:",opts:["Directive Principles of State Policy","Direct Policy of State Plans","Directive Plans of Social Programs","None"],ans:0},
+  {q:"The Right to Information Act was passed in:",opts:["2003","2004","2005","2006"],ans:2},
+  {q:"The Supreme Court of India was established in:",opts:["1950","1947","1935","1919"],ans:0},
+  {q:"Which article deals with the Right to Equality?",opts:["Article 12","Article 14","Article 16","Article 19"],ans:1},
+  {q:"The concept of 'Judicial Review' means:",opts:["Courts can review executive decisions","Courts can review laws","Courts review all policies","Both A and B"],ans:3},
+  {q:"The Anti-Defection Law is included in which Schedule?",opts:["5th Schedule","8th Schedule","9th Schedule","10th Schedule"],ans:3},
+  {q:"How many languages are listed in the 8th Schedule of the Constitution?",opts:["18","20","22","24"],ans:2},
+  {q:"Writ of Mandamus is issued to:",opts:["Compel a person to do a public duty","Release a person from custody","Question detention","Transfer case"],ans:0},
+  {q:"Which part of the Constitution deals with Fundamental Rights?",opts:["Part II","Part III","Part IV","Part V"],ans:1},
+  {q:"Finance Commission is constituted every:",opts:["3 years","5 years","4 years","6 years"],ans:1},
+  {q:"Who appoints the Chief Election Commissioner?",opts:["Parliament","Prime Minister","President","Supreme Court"],ans:2},
+  {q:"The Comptroller and Auditor General (CAG) is responsible to:",opts:["Parliament","President","Prime Minister","Supreme Court"],ans:0},
+  {q:"Money Bills can be introduced only in:",opts:["Rajya Sabha","Lok Sabha","Either house","Joint session"],ans:1},
+  {q:"Which Schedule of the Constitution contains the Oath of office?",opts:["1st","2nd","3rd","4th"],ans:2},
+  {q:"CAG is appointed for a term of:",opts:["5 years","6 years","3 years","Until age 65"],ans:1},
+  {q:"The Council of Ministers is collectively responsible to:",opts:["President","Rajya Sabha","Lok Sabha","Prime Minister"],ans:2},
+  {q:"The concept of PIL was first introduced by:",opts:["A.K. Gopalan","Justice V.R. Krishna Iyer","Justice P.N. Bhagwati","Justice Hidayatullah"],ans:2},
+  {q:"National Commission for SCs is established under Article:",opts:["338","340","338A","341"],ans:0},
+  {q:"India follows which type of government system?",opts:["Presidential","Parliamentary","Federal","Unitary"],ans:1},
+],
+
+// ─── INDIAN GEOGRAPHY ───────────────────────────────────
+"Indian Geography": [
+  {q:"The Tropic of Cancer does NOT pass through:",opts:["Gujarat","Rajasthan","UP","Jharkhand"],ans:2},
+  {q:"Which is the highest peak in India?",opts:["Nanda Devi","Kanchenjunga","K2","Karakoram"],ans:1},
+  {q:"The Brahmaputra river originates from:",opts:["Mansarovar Lake","Himalayas in Arunachal","Tibet (Chemayungdung glacier)","Gangotri glacier"],ans:2},
+  {q:"Which state shares the longest border with China?",opts:["Sikkim","Arunachal Pradesh","Himachal Pradesh","Uttarakhand"],ans:1},
+  {q:"The Chilika Lake is situated in:",opts:["West Bengal","Andhra Pradesh","Odisha","Tamil Nadu"],ans:2},
+  {q:"Deccan Plateau is bounded by:",opts:["Vindhyas and Satpuras","Aravallis and Vindhyas","Eastern and Western Ghats","All of these"],ans:3},
+  {q:"India's longest river is:",opts:["Godavari","Ganga","Brahmaputra","Yamuna"],ans:1},
+  {q:"Which is the easternmost point of India?",opts:["Kibithu","Indira Point","Indira Col","Sir Creek"],ans:0},
+  {q:"The Andaman and Nicobar Islands are separated by the:",opts:["Ten Degree Channel","Nine Degree Channel","Duncan Passage","Palk Strait"],ans:0},
+  {q:"Which of the following soils is most suitable for cotton cultivation?",opts:["Alluvial soil","Red soil","Laterite soil","Black soil"],ans:3},
+  {q:"India has a total coastline of approximately:",opts:["5500 km","6500 km","7500 km","8500 km"],ans:2},
+  {q:"Which passes connects Himachal Pradesh to Ladakh?",opts:["Nathu La","Zoji La","Shipki La","Rohtang Pass"],ans:3},
+  {q:"The Western Ghats are also known as:",opts:["Sahyadri","Vindhya","Satpura","Aravalli"],ans:0},
+  {q:"The Sundarbans delta is formed by rivers:",opts:["Ganga and Brahmaputra","Ganga and Yamuna","Ganga and Mahanadi","Ganga and Godavari"],ans:0},
+  {q:"The longest National Highway in India is:",opts:["NH-44","NH-7","NH-1","NH-27"],ans:0},
+  {q:"Lakshadweep is a group of how many islands?",opts:["30","36","39","42"],ans:1},
+  {q:"The Thar Desert is also called:",opts:["Arabian Desert","Great Indian Desert","Rajputana Desert","Both B and C"],ans:3},
+  {q:"Which state in India is largest by area?",opts:["Maharashtra","Madhya Pradesh","Rajasthan","Uttar Pradesh"],ans:2},
+  {q:"The standard meridian of India passes through:",opts:["Allahabad","Varanasi","Mirzapur","Lucknow"],ans:2},
+  {q:"India is separated from Sri Lanka by:",opts:["Palk Strait","Gulf of Mannar","Laccadive Sea","Andaman Sea"],ans:0},
+  {q:"The state with highest literacy rate in India is:",opts:["Goa","Kerala","Himachal Pradesh","Uttarakhand"],ans:1},
+  {q:"Kaziranga National Park is famous for:",opts:["Tigers","Elephants","One-horned Rhinoceros","Snow leopard"],ans:2},
+  {q:"Which dam is built on Narmada River?",opts:["Bhakra Nangal","Hirakud","Sardar Sarovar","Nagarjunasagar"],ans:2},
+  {q:"The Konkan railway connects:",opts:["Mumbai to Kochi","Roha to Mangalore","Mumbai to Goa","Goa to Chennai"],ans:1},
+  {q:"Jim Corbett National Park is in:",opts:["Madhya Pradesh","Rajasthan","Uttarakhand","Himachal Pradesh"],ans:2},
+  {q:"Which state has highest production of coal in India?",opts:["Jharkhand","Odisha","Chhattisgarh","West Bengal"],ans:0},
+  {q:"The Siachen Glacier is in:",opts:["Himachal Pradesh","Uttarakhand","Jammu & Kashmir/Ladakh","Arunachal Pradesh"],ans:2},
+  {q:"India's first biosphere reserve was:",opts:["Nilgiri","Sundarbans","Nanda Devi","Gulf of Mannar"],ans:0},
+  {q:"The river Luni flows into:",opts:["Arabian Sea","Rann of Kutch","Bay of Bengal","Gulf of Khambhat"],ans:1},
+  {q:"Which is India's largest fresh water lake?",opts:["Dal Lake","Chilika","Wular Lake","Loktak Lake"],ans:2},
+],
+
+// ─── PHYSICS ────────────────────────────────────────────
+"Physics": [
+  {q:"The SI unit of electric resistance is:",opts:["Ampere","Volt","Ohm","Watt"],ans:2},
+  {q:"Which law states 'Force = Mass × Acceleration'?",opts:["Newton's First Law","Newton's Second Law","Newton's Third Law","Law of Gravitation"],ans:1},
+  {q:"The phenomenon of bending of light around corners is called:",opts:["Refraction","Reflection","Diffraction","Dispersion"],ans:2},
+  {q:"A concave lens always forms a:",opts:["Real image","Virtual image","Inverted image","Magnified image"],ans:1},
+  {q:"The frequency of AC supply in India is:",opts:["50 Hz","60 Hz","40 Hz","100 Hz"],ans:0},
+  {q:"The unit of work done is:",opts:["Newton","Joule","Watt","Pascal"],ans:1},
+  {q:"Which type of mirror is used in a rear-view mirror of a car?",opts:["Concave","Convex","Plane","Parabolic"],ans:1},
+  {q:"Ohm's Law is V = IR. If V = 12V and R = 4Ω, then I =",opts:["48 A","3 A","8 A","16 A"],ans:1},
+  {q:"The escape velocity from Earth's surface is approximately:",opts:["7.9 km/s","11.2 km/s","9.8 km/s","25 km/s"],ans:1},
+  {q:"Which phenomenon causes the sky to appear blue?",opts:["Reflection","Refraction","Scattering","Dispersion"],ans:2},
+  {q:"Sound waves are:",opts:["Transverse waves","Longitudinal waves","Electromagnetic waves","None of these"],ans:1},
+  {q:"The unit of Power is:",opts:["Joule","Newton","Watt","Pascal"],ans:2},
+  {q:"A body is thrown vertically up. At maximum height its acceleration is:",opts:["Zero","g upward","g downward","2g"],ans:2},
+  {q:"Transformer works on the principle of:",opts:["Self induction","Mutual induction","Eddy current","Magnetic resonance"],ans:1},
+  {q:"The pitch of a sound depends on its:",opts:["Amplitude","Frequency","Wavelength","Speed"],ans:1},
+  {q:"Which colour of light has the highest frequency?",opts:["Red","Yellow","Green","Violet"],ans:3},
+  {q:"P = V²/R. If voltage doubles, power becomes:",opts:["Double","Four times","Half","Same"],ans:1},
+  {q:"The rate of change of displacement is called:",opts:["Speed","Acceleration","Velocity","Momentum"],ans:2},
+  {q:"The refractive index of glass is approximately:",opts:["1.0","1.33","1.5","2.0"],ans:2},
+  {q:"Fleming's Left Hand Rule is used for:",opts:["Generator","Motor","Transformer","All of these"],ans:1},
+  {q:"If mass of a body is doubled and velocity halved, its kinetic energy becomes:",opts:["Same","Double","Half","Quarter"],ans:2},
+  {q:"A thermometer uses which property of liquid?",opts:["Expansion on heating","Contraction on heating","Pressure change","Viscosity change"],ans:0},
+  {q:"1 kWh is equal to:",opts:["3600 J","3.6 × 10⁶ J","360 J","36 × 10⁴ J"],ans:1},
+  {q:"The image formed on the retina of the eye is:",opts:["Virtual and erect","Real and erect","Real and inverted","Virtual and inverted"],ans:2},
+  {q:"When white light passes through a prism, which colour deviates least?",opts:["Violet","Blue","Green","Red"],ans:3},
+  {q:"Work-energy theorem states that:",opts:["Work = Change in KE","Work = Change in PE","Work = KE","Work = Force × distance only"],ans:0},
+  {q:"The unit of radioactivity is:",opts:["Roentgen","Curie","Becquerel","Both B and C"],ans:3},
+  {q:"Loudness of sound is measured in:",opts:["Hertz","Decibels","Watts","Pascals"],ans:1},
+  {q:"Light travels fastest in:",opts:["Water","Glass","Vacuum","Air"],ans:2},
+  {q:"The period of oscillation of a simple pendulum depends on:",opts:["Mass of bob","Length of pendulum","Amplitude","Both A and B"],ans:1},
+],
+
+// ─── CHEMISTRY ──────────────────────────────────────────
+"Chemistry": [
+  {q:"The atomic number of Hydrogen is:",opts:["1","2","3","4"],ans:0},
+  {q:"Which gas is responsible for acid rain?",opts:["CO2","SO2","N2","O3"],ans:1},
+  {q:"Rusting of iron is a type of:",opts:["Physical change","Chemical change","Both","Neither"],ans:1},
+  {q:"The chemical formula of common salt (NaCl) is:",opts:["NaCl","Na2Cl","NaCl2","N2Cl"],ans:0},
+  {q:"pH less than 7 indicates:",opts:["Acidic","Basic","Neutral","Alkaline"],ans:0},
+  {q:"Which gas is produced during photosynthesis?",opts:["CO2","N2","O2","H2"],ans:2},
+  {q:"The heaviest naturally occurring element is:",opts:["Mercury","Lead","Uranium","Gold"],ans:2},
+  {q:"Bleaching powder is:",opts:["CaCl2","Ca(OCl)Cl","CaO","CaCO3"],ans:1},
+  {q:"Baking soda is chemically:",opts:["NaOH","Na2CO3","NaHCO3","NaCl"],ans:2},
+  {q:"Which is the most abundant gas in the atmosphere?",opts:["Oxygen","Carbon dioxide","Nitrogen","Argon"],ans:2},
+  {q:"Valency of Carbon is:",opts:["2","3","4","6"],ans:2},
+  {q:"The process of conversion of ore to metal is called:",opts:["Mining","Smelting","Refining","Electrolysis"],ans:1},
+  {q:"Which acid is present in vinegar?",opts:["Hydrochloric acid","Sulphuric acid","Acetic acid","Citric acid"],ans:2},
+  {q:"Brass is an alloy of:",opts:["Copper and Iron","Copper and Zinc","Copper and Tin","Iron and Zinc"],ans:1},
+  {q:"The formula of Sulphuric Acid is:",opts:["H2S","H2SO3","H2SO4","HSO4"],ans:2},
+  {q:"Diamond and Graphite are:",opts:["Isotopes of Carbon","Allotropes of Carbon","Isomers of Carbon","Isobars"],ans:1},
+  {q:"Milk of magnesia is:",opts:["Mg(OH)2","MgO","MgCl2","MgCO3"],ans:0},
+  {q:"The indicator litmus turns red in:",opts:["Base","Acid","Neutral solution","Salt solution"],ans:1},
+  {q:"What is the molecular mass of water (H2O)?",opts:["16","17","18","19"],ans:2},
+  {q:"Stainless steel contains:",opts:["Iron, Carbon, Chromium","Iron, Copper, Nickel","Iron, Zinc, Tin","Iron only"],ans:0},
+  {q:"CNG stands for:",opts:["Compressed Natural Gas","Crude Natural Gas","Condensed Natural Gas","None"],ans:0},
+  {q:"The process of adding chlorine to drinking water is called:",opts:["Filtration","Chlorination","Disinfection","Purification"],ans:1},
+  {q:"Which metal is liquid at room temperature?",opts:["Lead","Mercury","Tin","Gallium"],ans:1},
+  {q:"LPG mainly consists of:",opts:["Methane","Ethane","Propane and Butane","Acetylene"],ans:2},
+  {q:"Dry ice is solid:",opts:["Water","Oxygen","Carbon dioxide","Nitrogen"],ans:2},
+  {q:"The chemical name of Vitamin C is:",opts:["Retinol","Ascorbic acid","Tocopherol","Thiamine"],ans:1},
+  {q:"Which gas is filled in balloons?",opts:["Hydrogen","Helium","Oxygen","Nitrogen"],ans:1},
+  {q:"Bronze is an alloy of:",opts:["Cu and Zn","Cu and Sn","Fe and C","Al and Cu"],ans:1},
+  {q:"The number of electrons in the outermost shell of noble gases (except He) is:",opts:["2","4","6","8"],ans:3},
+  {q:"Which is the hardest form of iron?",opts:["Cast iron","Wrought iron","Steel","Carbon steel"],ans:0},
+],
+
+// ─── ENGLISH ────────────────────────────────────────────
+"English": [
+  {q:"Choose the correct spelling:",opts:["Accomodation","Accommodation","Acommodation","Acomodation"],ans:1},
+  {q:"The antonym of 'Brave' is:",opts:["Heroic","Courageous","Cowardly","Bold"],ans:2},
+  {q:"The synonym of 'Diligent' is:",opts:["Lazy","Hardworking","Careless","Slow"],ans:1},
+  {q:"Identify the noun in: 'The bird sang sweetly.'",opts:["sang","sweetly","bird","The"],ans:2},
+  {q:"'She doesn't know the answer.' (Active to Passive)",opts:["The answer is not known by her","The answer was not known by her","The answer has not been known","The answer is unknown to her"],ans:0},
+  {q:"The past tense of 'ring' is:",opts:["ringed","rang","rung","ring"],ans:1},
+  {q:"Choose the correct sentence:",opts:["He don't know","He doesn't knows","He doesn't know","He do not knows"],ans:2},
+  {q:"Fill in: She __ for three hours when I arrived.",opts:["was waiting","has waited","had been waiting","waited"],ans:2},
+  {q:"'A blessing in disguise' means:",opts:["A fake blessing","Something that seems bad but is good","A genuine blessing","Bad luck"],ans:1},
+  {q:"The plural of 'Child' is:",opts:["Childs","Childes","Children","Childrens"],ans:2},
+  {q:"The one-word for 'a place where books are kept' is:",opts:["Bookstore","Library","Museum","Archive"],ans:1},
+  {q:"Which sentence uses the superlative degree correctly?",opts:["She is taller of the two","She is the tallest of all","She is more tall","She is more taller"],ans:1},
+  {q:"The antonym of 'Ancient' is:",opts:["Historical","Modern","Medieval","Classic"],ans:1},
+  {q:"'Break the ice' means:",opts:["Destroy something","Initiate conversation","Stop a fight","Work hard"],ans:1},
+  {q:"The verb form of 'Beauty' is:",opts:["Beautiful","Beautify","Beautifully","Beauteous"],ans:1},
+  {q:"'He is too tired to work' – 'too' here is:",opts:["Adjective","Adverb","Preposition","Conjunction"],ans:1},
+  {q:"Fill in: Mohan __ his homework yesterday.",opts:["do","does","did","has done"],ans:2},
+  {q:"Identify the adverb: 'The dog runs quickly.'",opts:["dog","runs","quickly","The"],ans:2},
+  {q:"The passive voice of 'Someone stole my bag' is:",opts:["My bag has been stolen","My bag was stolen by someone","My bag is stolen","My bag got stolen"],ans:1},
+  {q:"Choose the correctly punctuated sentence:",opts:["Lets go!","Let's go!","Lets' go!","Let go's!"],ans:1},
+  {q:"'To beat around the bush' means:",opts:["To walk in a garden","To avoid the main topic","To work hard","To be dishonest"],ans:1},
+  {q:"The preposition in 'He is fond of music' is:",opts:["is","fond","of","music"],ans:2},
+  {q:"The conjunction in 'She sings and dances' is:",opts:["She","sings","and","dances"],ans:2},
+  {q:"Choose the correct article: '__ honest man'",opts:["A","An","The","No article"],ans:1},
+  {q:"Which is a compound sentence?",opts:["She ran.","She ran and jumped.","She ran because she was late.","Running fast, she won."],ans:1},
+  {q:"The synonym of 'Abundant' is:",opts:["Scarce","Plentiful","Little","Few"],ans:1},
+  {q:"'He is good AT mathematics.' The preposition used is:",opts:["in","on","at","for"],ans:2},
+  {q:"Future perfect tense: 'By tomorrow I __ the work.'",opts:["will finish","will have finished","shall finish","am finishing"],ans:1},
+  {q:"Which is a collective noun?",opts:["Team","Beautiful","Quickly","Run"],ans:0},
+  {q:"The antonym of 'Optimistic' is:",opts:["Positive","Hopeful","Pessimistic","Cheerful"],ans:2},
+],
+
+// ─── INDIAN ECONOMY ─────────────────────────────────────
+"Indian Economy": [
+  {q:"India's GDP is measured at:",opts:["Current prices only","Constant prices only","Both current and constant prices","Market prices only"],ans:2},
+  {q:"The 'Green Revolution' in India is associated with:",opts:["Pulses","Wheat and Rice","Oilseeds","Cotton"],ans:1},
+  {q:"NITI Aayog replaced:",opts:["Planning Commission","Finance Commission","Economic Advisory Council","None"],ans:0},
+  {q:"Which bank is the apex bank for agricultural credit in India?",opts:["RBI","SBI","NABARD","SIDBI"],ans:2},
+  {q:"GST (Goods and Services Tax) was implemented in India in:",opts:["2014","2016","2017","2018"],ans:2},
+  {q:"Which is NOT a direct tax?",opts:["Income Tax","Corporate Tax","Wealth Tax","GST"],ans:3},
+  {q:"The term 'Fiscal Deficit' means:",opts:["Revenue – Expenditure","Expenditure – Revenue","Borrowings of government","Revenue Deficit + Capital Expenditure"],ans:1},
+  {q:"The first Five Year Plan of India was launched in:",opts:["1947","1950","1951","1956"],ans:2},
+  {q:"The Headquarters of World Bank is in:",opts:["Geneva","New York","Washington D.C.","London"],ans:2},
+  {q:"Which sector contributes most to India's GDP?",opts:["Agriculture","Industry","Services","Manufacturing"],ans:2},
+  {q:"SEBI regulates:",opts:["Banking sector","Insurance sector","Stock markets","Mutual funds only"],ans:2},
+  {q:"The base year for current GDP calculation in India is:",opts:["2005-06","2010-11","2011-12","2015-16"],ans:2},
+  {q:"National Income of India is calculated by:",opts:["RBI","MOSPI (CSO)","NITI Aayog","Finance Ministry"],ans:1},
+  {q:"The 'Pradhan Mantri Jan Dhan Yojana' was launched in:",opts:["2013","2014","2015","2016"],ans:1},
+  {q:"Which is the largest commercial bank in India?",opts:["PNB","HDFC","SBI","ICICI"],ans:2},
+  {q:"Repo rate is the rate at which:",opts:["Banks lend to public","RBI lends to banks","Banks deposit with RBI","RBI borrows from banks"],ans:1},
+  {q:"The Disinvestment policy aims at:",opts:["Selling government shares in PSUs","Buying private companies","Nationalisation","None of these"],ans:0},
+  {q:"Which index measures retail price changes?",opts:["WPI","CPI","GDP Deflator","PPI"],ans:1},
+  {q:"MUDRA Bank provides loans to:",opts:["Large industries","Small and micro enterprises","Farmers only","Exporters"],ans:1},
+  {q:"India's largest trading partner in 2023-24 was:",opts:["USA","China","UAE","Russia"],ans:0},
+  {q:"The National Development Council (NDC) is headed by:",opts:["Finance Minister","Prime Minister","President","RBI Governor"],ans:1},
+  {q:"What is 'Stagflation'?",opts:["High growth, high inflation","Low growth, high inflation","High growth, low inflation","Low growth, low inflation"],ans:1},
+  {q:"The term 'Bull Market' refers to:",opts:["Falling stock prices","Rising stock prices","Stable economy","Bear attack on stocks"],ans:1},
+  {q:"FEMA stands for:",opts:["Foreign Exchange Management Act","Foreign Economic Management Act","Federal Exchange Management Act","Foreign Equity Management Act"],ans:0},
+  {q:"Which committee recommended GST in India?",opts:["Kelkar Committee","Vijay Kelkar Committee","Asim Dasgupta Committee","Raja Chelliah Committee"],ans:2},
+  {q:"The concept of 'Inclusive Growth' is associated with which Five Year Plan?",opts:["10th","11th","12th","9th"],ans:1},
+  {q:"Micro-finance is mainly intended for:",opts:["Corporates","Poor and rural people","Medium enterprises","Exporters"],ans:1},
+  {q:"Which payment system was launched by NPCI?",opts:["SWIFT","NEFT","UPI","RTGS"],ans:2},
+  {q:"India's Foreign Exchange Reserves are managed by:",opts:["Finance Ministry","SEBI","RBI","NABARD"],ans:2},
+  {q:"'Make in India' initiative was launched in:",opts:["2013","2014","2015","2016"],ans:1},
+],
+
+// ─── ENVIRONMENT & ECOLOGY ──────────────────────────────
+"Environment & Ecology": [
+  {q:"The primary cause of the 'Greenhouse Effect' is:",opts:["CO2","O3","N2","H2O only"],ans:0},
+  {q:"Which gas is responsible for depletion of the ozone layer?",opts:["CO2","SO2","CFC","NO2"],ans:2},
+  {q:"The 'Chipko Movement' was started in:",opts:["1970","1972","1973","1974"],ans:2},
+  {q:"'Agenda 21' was adopted at:",opts:["Rio Earth Summit 1992","Stockholm 1972","Kyoto 1997","Copenhagen 2009"],ans:0},
+  {q:"The Paris Agreement aims to limit global warming to:",opts:["1°C","1.5-2°C","3°C","4°C"],ans:1},
+  {q:"Which is a biodiversity hotspot in India?",opts:["Thar Desert","Western Ghats","Deccan Plateau","Indo-Gangetic Plain"],ans:1},
+  {q:"The term 'ecology' was coined by:",opts:["Charles Darwin","Ernst Haeckel","Alexander von Humboldt","Carl Linnaeus"],ans:1},
+  {q:"Mangroves are important because they:",opts:["Provide timber","Protect coastlines from erosion","Are food source for fish","All of these"],ans:3},
+  {q:"The Kyoto Protocol is related to:",opts:["Biodiversity","Climate change","Ozone depletion","Marine pollution"],ans:1},
+  {q:"Red Data Book contains information about:",opts:["Red-coloured animals","Extinct species only","Endangered species","Common species"],ans:2},
+  {q:"The smallest unit of ecology is:",opts:["Population","Community","Ecosystem","Biosphere"],ans:0},
+  {q:"Biotic components of an ecosystem include:",opts:["Air, water, soil","Plants, animals, microbes","Temperature, light","Rocks and minerals"],ans:1},
+  {q:"Which type of pollution is caused by excess use of fertilisers?",opts:["Air pollution","Water (Eutrophication)","Noise pollution","Soil pollution"],ans:1},
+  {q:"The concept of 'Carbon footprint' relates to:",opts:["Footwear industry","Greenhouse gas emissions","Coal mining","Deforestation"],ans:1},
+  {q:"The National Green Tribunal (NGT) was established in:",opts:["2009","2010","2011","2012"],ans:1},
+  {q:"Which country has the highest forest cover in percentage?",opts:["Brazil","Russia","Suriname","India"],ans:2},
+  {q:"Biomagnification means:",opts:["Increase in population","Increase in pollutant concentration up food chain","Magnification of bacteria","All of these"],ans:1},
+  {q:"Project Elephant was launched in:",opts:["1991","1992","1993","1994"],ans:2},
+  {q:"The Ramsar Convention is related to:",opts:["Wetland conservation","Forest conservation","Marine conservation","Biodiversity"],ans:0},
+  {q:"Noise pollution limit for residential areas (day time) in India is:",opts:["45 dB","55 dB","65 dB","75 dB"],ans:1},
+  {q:"World Environment Day is observed on:",opts:["5 June","22 April","16 September","21 March"],ans:0},
+  {q:"The Silent Valley National Park is in:",opts:["Karnataka","Tamil Nadu","Kerala","Andhra Pradesh"],ans:2},
+  {q:"Photochemical smog is caused by:",opts:["SO2 and dust","NOx and hydrocarbons","CO and methane","CFC and Ozone"],ans:1},
+  {q:"Which ecosystem has the highest biodiversity?",opts:["Grassland","Desert","Tropical rainforest","Tundra"],ans:2},
+  {q:"Convention on Biological Diversity (CBD) was adopted in:",opts:["Rio de Janeiro 1992","Stockholm 1972","Tokyo 1997","Nairobi 1995"],ans:0},
+  {q:"Ex-situ conservation means:",opts:["Conservation in natural habitat","Conservation outside natural habitat","No conservation","Partial conservation"],ans:1},
+  {q:"The Narmada Bachao Andolan was led by:",opts:["Anna Hazare","Medha Patkar","Sundarlal Bahuguna","Vandana Shiva"],ans:1},
+  {q:"India's State Animal of Uttarakhand is:",opts:["Snow Leopard","Himalayan Monal","Alpine Musk Deer","Red Fox"],ans:2},
+  {q:"Biosphere Reserves in India are designated by:",opts:["WWF","UNESCO","MoEFCC","IUCN"],ans:2},
+  {q:"The biggest source of ocean pollution is:",opts:["Oil spills","Plastic waste","Industrial effluents","Sewage"],ans:1},
+],
+
+// ─── COMPUTER KNOWLEDGE ─────────────────────────────────
+"Computer Knowledge": [
+  {q:"CPU stands for:",opts:["Central Processing Unit","Computer Processing Unit","Central Program Unit","Central Processor Utility"],ans:0},
+  {q:"The binary number system uses digits:",opts:["0-9","0 and 1","A-F","0-7"],ans:1},
+  {q:"RAM stands for:",opts:["Read Access Memory","Random Access Memory","Remote Access Memory","Read And Memory"],ans:1},
+  {q:"Which is the brain of a computer?",opts:["RAM","ROM","CPU","Hard Disk"],ans:2},
+  {q:"1 Byte = ?",opts:["4 bits","8 bits","16 bits","32 bits"],ans:1},
+  {q:"HTML stands for:",opts:["Hyper Text Markup Language","High Transfer Markup Language","Hyper Transfer Markup Language","Hyper Text Modify Language"],ans:0},
+  {q:"The Internet was originally called:",opts:["WorldNet","ARPANet","InterNet","WebNet"],ans:1},
+  {q:"Which is NOT an input device?",opts:["Keyboard","Mouse","Monitor","Scanner"],ans:2},
+  {q:"The extension of MS Word file is:",opts:[".xls",".ppt",".doc/.docx",".pdf"],ans:2},
+  {q:"Windows 11 is an example of:",opts:["Application software","Operating system","Hardware","Network"],ans:1},
+  {q:"The shortcut key for Copy is:",opts:["Ctrl+X","Ctrl+C","Ctrl+V","Ctrl+A"],ans:1},
+  {q:"Which is the fastest type of computer?",opts:["Personal Computer","Supercomputer","Mainframe","Minicomputer"],ans:1},
+  {q:"URL stands for:",opts:["Universal Resource Locator","Uniform Resource Locator","Uniform Remote Locator","Universal Remote Link"],ans:1},
+  {q:"VIRUS in computers stands for:",opts:["Vital Information Resources Under Siege","Virtual Information Resource Under Software","Very Important Resource Unit Software","None"],ans:0},
+  {q:"Which key combination is used to take a screenshot?",opts:["Alt+F4","Ctrl+P","PrtScr","F12"],ans:2},
+  {q:"MS Excel is used for:",opts:["Word processing","Presentations","Spreadsheet","Database management"],ans:2},
+  {q:"1 GB = ?",opts:["1000 MB","1024 MB","512 MB","2048 MB"],ans:1},
+  {q:"DNS stands for:",opts:["Domain Name System","Data Network System","Digital Name Server","Domain Network Service"],ans:0},
+  {q:"Which is NOT a social media platform?",opts:["Facebook","Twitter","Linux","Instagram"],ans:2},
+  {q:"The first computer virus was named:",opts:["ILOVEYOU","Creeper","Melissa","Brain"],ans:1},
+  {q:"The shortcut to Undo is:",opts:["Ctrl+Y","Ctrl+Z","Ctrl+U","Ctrl+X"],ans:1},
+  {q:"HTTP stands for:",opts:["Hyper Text Transfer Protocol","High Transfer Text Protocol","Hyper Text Transformation Protocol","None"],ans:0},
+  {q:"Which language is used for web development?",opts:["Java","HTML","C++","Assembly"],ans:1},
+  {q:"ROM stands for:",opts:["Random Only Memory","Read Only Memory","Remote Online Memory","None"],ans:1},
+  {q:"The process of starting a computer is called:",opts:["Logging","Shutting down","Booting","Formatting"],ans:2},
+  {q:"Which is an example of an output device?",opts:["Mouse","Keyboard","Printer","Scanner"],ans:2},
+  {q:"Firewall is used for:",opts:["Cooling computers","Network security","Data backup","Speed enhancement"],ans:1},
+  {q:"The first programming language was:",opts:["FORTRAN","COBOL","BASIC","Assembly Language"],ans:3},
+  {q:"What is Phishing?",opts:["Fishing technique","Cyber fraud to steal information","Virus attack","Hardware damage"],ans:1},
+  {q:"The .gov domain is used by:",opts:["Private companies","Government websites","Educational institutions","Non-profits"],ans:1},
+],
+
+// ─── LAW & CONSTITUTION ─────────────────────────────────
+"Law & Constitution": [
+  {q:"The Indian Penal Code was enacted in:",opts:["1857","1860","1872","1865"],ans:1},
+  {q:"IPC section 302 deals with:",opts:["Theft","Robbery","Murder","Dacoity"],ans:2},
+  {q:"The Code of Criminal Procedure (CrPC) was replaced by:",opts:["BNS","BNSS","BSA","All of these"],ans:1},
+  {q:"FIR stands for:",opts:["Final Investigation Report","First Information Report","Formal Investigation Report","First Inquiry Report"],ans:1},
+  {q:"Under which section is defamation defined in IPC?",opts:["Section 499","Section 302","Section 376","Section 420"],ans:0},
+  {q:"IPC 420 deals with:",opts:["Murder","Cheating","Theft","Assault"],ans:1},
+  {q:"The right to remain silent comes from:",opts:["Article 19","Article 20(3)","Article 21","Article 22"],ans:1},
+  {q:"Cognizable offence is one in which police can arrest:",opts:["Only with warrant","Without warrant","With court order only","With magistrate permission"],ans:1},
+  {q:"The maximum punishment in India is:",opts:["Life imprisonment","20 years","Death penalty","25 years"],ans:2},
+  {q:"A 'Remand' means:",opts:["Release of accused","Sending accused back to custody","Bail","Acquittal"],ans:1},
+  {q:"POCSO Act protects:",opts:["Women","Senior citizens","Children below 18 years","Disabled persons"],ans:2},
+  {q:"Bail is a:",opts:["Right to remain in jail","Provisional release of accused","Punishment","Fine"],ans:1},
+  {q:"Habeas Corpus literally means:",opts:["You may have the body","Show me the evidence","Let justice be done","Break the law"],ans:0},
+  {q:"IPC 376 deals with:",opts:["Kidnapping","Rape","Murder","Dacoity"],ans:1},
+  {q:"The Juvenile Justice Act considers persons below what age as juveniles?",opts:["14 years","16 years","18 years","21 years"],ans:2},
+  {q:"Under CRPC, a Magistrate can send an accused to police custody for maximum:",opts:["7 days","14 days","15 days","30 days"],ans:2},
+  {q:"The Right to Legal Aid is provided under:",opts:["Article 21","Article 22","Article 39A","Both A and C"],ans:3},
+  {q:"Lokpal is India's:",opts:["Ombudsman","Court","Commission","Tribunal"],ans:0},
+  {q:"The Protection of Women from Domestic Violence Act was passed in:",opts:["2001","2003","2005","2007"],ans:2},
+  {q:"Section 144 of CrPC allows:",opts:["Detention","Prohibition of assembly","Search and seizure","All of these"],ans:1},
+  {q:"The Narcotics and Psychotropic Substances Act was enacted in:",opts:["1980","1985","1988","1990"],ans:1},
+  {q:"MLA stands for:",opts:["Member of Legislative Assembly","Member of Local Authority","Master of Legal Affairs","Member of Law Assembly"],ans:0},
+  {q:"'Mens rea' in law means:",opts:["Physical act","Guilty mind","Criminal act","None of these"],ans:1},
+  {q:"IPC 307 deals with:",opts:["Attempt to murder","Murder","Grievous hurt","Assault"],ans:0},
+  {q:"A Public Interest Litigation (PIL) can be filed by:",opts:["Affected party only","Any citizen","Government only","Only lawyers"],ans:1},
+  {q:"The National Legal Services Authority (NALSA) was established in:",opts:["1987","1995","2000","2005"],ans:1},
+  {q:"An 'Undertrial' prisoner is:",opts:["Convicted prisoner","Prisoner awaiting trial","Freed prisoner","Juvenile prisoner"],ans:1},
+  {q:"The Indian Evidence Act was enacted in:",opts:["1860","1872","1880","1898"],ans:1},
+  {q:"Under the IT Act 2000, Section 66 deals with:",opts:["Hacking","Cyber stalking","Data theft","Online fraud"],ans:0},
+  {q:"Contempt of Court is defined under Article:",opts:["129","139","142","215"],ans:0},
+],
+
+// ─── UP SPECIFIC GK ─────────────────────────────────────
+"UP Specific GK": [
+  {q:"The capital of Uttar Pradesh is:",opts:["Agra","Varanasi","Lucknow","Kanpur"],ans:2},
+  {q:"Which river flows through Lucknow?",opts:["Ganga","Yamuna","Gomti","Saryu"],ans:2},
+  {q:"The state animal of Uttar Pradesh is:",opts:["Tiger","Elephant","Swamp deer (Barasingha)","Lion"],ans:2},
+  {q:"Uttar Pradesh has how many districts?",opts:["70","71","75","80"],ans:2},
+  {q:"The oldest city of India, Varanasi, is situated on the bank of:",opts:["Yamuna","Ganga","Gomti","Saryu"],ans:1},
+  {q:"The Kumbh Mela is held in UP at:",opts:["Varanasi","Mathura","Prayagraj","Ayodhya"],ans:2},
+  {q:"'Awadhi' dialect is primarily spoken in which region of UP?",opts:["Western UP","Eastern UP","Central UP (Lucknow-Ayodhya belt)","Bundelkhand"],ans:2},
+  {q:"The first Chief Minister of Uttar Pradesh was:",opts:["Sampurnanand","Govind Ballabh Pant","Chandra Bhanu Gupta","Sucheta Kriplani"],ans:1},
+  {q:"The Agra Fort was built by:",opts:["Humayun","Babur","Akbar","Shahjahan"],ans:2},
+  {q:"The city of Agra is situated on the bank of which river?",opts:["Ganga","Yamuna","Chambal","Betwa"],ans:1},
+  {q:"UP State Bird is:",opts:["Parrot","Sarus Crane","Peacock","Dove"],ans:1},
+  {q:"The famous Lucknow Chikankari is a form of:",opts:["Painting","Embroidery","Weaving","Jewellery"],ans:1},
+  {q:"Banaras Hindu University (BHU) was founded by:",opts:["Swami Vivekananda","Madan Mohan Malaviya","Lala Lajpat Rai","Annie Besant"],ans:1},
+  {q:"The Taj Mahal was built by:",opts:["Akbar","Jahangir","Shahjahan","Aurangzeb"],ans:2},
+  {q:"Which is the highest peak in Uttar Pradesh?",opts:["Nanda Devi","Kedarnath","Shrikanta","Bandarpunch"],ans:0},
+  {q:"UPSRTC stands for:",opts:["UP State Rail & Transport Corporation","UP State Road Transport Corporation","UP State Rural Transport Commission","None"],ans:1},
+  {q:"The Dudhwa National Park is located in:",opts:["Lakhimpur Kheri","Varanasi","Agra","Mathura"],ans:0},
+  {q:"Kanpur is famous for:",opts:["IT industry","Leather goods","Textiles","Agriculture"],ans:1},
+  {q:"The 'Sangam' at Prayagraj is confluence of:",opts:["Ganga and Yamuna","Ganga, Yamuna and Saraswati","Ganga and Saryu","Yamuna and Gomti"],ans:1},
+  {q:"Firozabad in UP is famous for:",opts:["Carpets","Glass bangles","Chikankari","Brassware"],ans:1},
+  {q:"Mirzapur in UP is famous for:",opts:["Brass industry","Carpet industry","Glass industry","Leather industry"],ans:1},
+  {q:"The Ram Janmabhoomi temple is in:",opts:["Mathura","Varanasi","Ayodhya","Prayagraj"],ans:2},
+  {q:"Which UP city is called the 'City of Nawabs'?",opts:["Agra","Lucknow","Allahabad","Kanpur"],ans:1},
+  {q:"UP's Vrindavan is associated with:",opts:["Rama","Krishna","Shiva","Hanuman"],ans:1},
+  {q:"UP Share in India's total population is approximately:",opts:["10%","12%","16.5%","20%"],ans:2},
+  {q:"The famous Fatehpur Sikri is near which city?",opts:["Lucknow","Agra","Mathura","Jhansi"],ans:1},
+  {q:"The 'Operation Gangotri' is related to:",opts:["River cleaning","Drug control","Wildlife protection","Flood control"],ans:0},
+  {q:"The Yamuna Expressway connects:",opts:["Agra to Lucknow","Noida to Agra","Delhi to Agra","Mathura to Agra"],ans:1},
+  {q:"Which river separates UP from Bihar?",opts:["Ganga","Son","Gandak","Ghaghra"],ans:3},
+  {q:"Bareilly in UP is famous for:",opts:["Bamboo furniture","Zari work","Leather","Pottery"],ans:0},
+],
+};
+
+// ══════════════════════════════════════════════════════════
+//  EXAM DATABASE
+// ══════════════════════════════════════════════════════════
+const DB=[
+  {c:'Defence & Police',id:'up_constable',n:'UP Police Constable',
+    s:['General Hindi','General Knowledge & Current Affairs','Mathematics','Reasoning','UP Specific GK']},
+  {c:'Defence & Police',id:'upsi',n:'UP Police Sub-Inspector (UPSI)',
+    s:['General Hindi','Law & Constitution','General Knowledge & Current Affairs','Mathematics','Reasoning','UP Specific GK']},
+  {c:'Defence & Police',id:'up_hc',n:'UP Police Head Constable',
+    s:['General Hindi','General Knowledge & Current Affairs','Mathematics','Computer Knowledge','Reasoning']},
+  {c:'Defence & Police',id:'army_gd',n:'Indian Army – Soldier GD',
+    s:['General Knowledge & Current Affairs','General Science','Mathematics','Reasoning']},
+  {c:'Defence & Police',id:'army_clerk',n:'Indian Army – Clerk / SKT',
+    s:['General Knowledge & Current Affairs','Mathematics','Computer Knowledge','English']},
+  {c:'Defence & Police',id:'navy_mr',n:'Indian Navy – MR / SSR / AA',
+    s:['General Science','Mathematics','General Knowledge & Current Affairs','English']},
+  {c:'Defence & Police',id:'airforce_y',n:'Indian Air Force – Group Y',
+    s:['Reasoning','English','General Knowledge & Current Affairs','General Science']},
+  {c:'Defence & Police',id:'crpf',n:'CRPF / CISF / BSF / ITBP Constable',
+    s:['General Knowledge & Current Affairs','General Science','Mathematics','Reasoning','General Hindi']},
+  {c:'Civil Services',id:'upsc_pre',n:'UPSC CSE Prelims',
+    s:['Indian History','Indian Polity & Constitution','Indian Geography','Indian Economy','Environment & Ecology','General Science','General Knowledge & Current Affairs']},
+  {c:'State PSC',id:'uppcs',n:'UPPCS (UP PCS)',
+    s:['Indian History','Indian Polity & Constitution','Indian Geography','Indian Economy','General Hindi','General Science','UP Specific GK','General Knowledge & Current Affairs']},
+  {c:'State PSC',id:'bpsc',n:'BPSC (Bihar PCS)',
+    s:['Indian History','Indian Polity & Constitution','General Science','Indian Geography','General Knowledge & Current Affairs']},
+  {c:'SSC',id:'ssc_cgl',n:'SSC CGL (Combined Graduate Level)',
+    s:['Mathematics','Reasoning','English','General Knowledge & Current Affairs']},
+  {c:'SSC',id:'ssc_chsl',n:'SSC CHSL / MTS / Steno',
+    s:['Mathematics','Reasoning','English','General Knowledge & Current Affairs']},
+  {c:'SSC',id:'ssc_gd',n:'SSC GD Constable',
+    s:['Mathematics','Reasoning','General Knowledge & Current Affairs','English','General Hindi']},
+  {c:'Railways',id:'rrb_ntpc',n:'RRB NTPC',
+    s:['Mathematics','Reasoning','General Knowledge & Current Affairs','General Science','English']},
+  {c:'Railways',id:'rrb_gd',n:'RRB Group D',
+    s:['Mathematics','Reasoning','General Science','General Knowledge & Current Affairs']},
+  {c:'Banking & Finance',id:'ibps_po',n:'IBPS PO / SBI PO',
+    s:['Mathematics','Reasoning','English','General Knowledge & Current Affairs','Computer Knowledge']},
+  {c:'Banking & Finance',id:'ibps_clerk',n:'IBPS Clerk / SBI Clerk',
+    s:['Mathematics','Reasoning','English','General Knowledge & Current Affairs','Computer Knowledge']},
+  {c:'Engineering',id:'jee',n:'JEE Mains',
+    s:['Physics','Chemistry','Mathematics']},
+  {c:'Medical',id:'neet',n:'NEET UG',
+    s:['Physics','Chemistry','General Science']},
+  {c:'Teaching',id:'ctet',n:'CTET / UPTET',
+    s:['General Hindi','English','Mathematics','General Science','Indian Polity & Constitution','Reasoning']},
+  {c:'Teaching',id:'super_tet',n:'UP Super TET',
+    s:['General Hindi','English','Mathematics','General Science','Indian Polity & Constitution','Computer Knowledge','Reasoning','UP Specific GK']},
+  {c:'Law',id:'pcsj',n:'UP Judicial Services (PCS-J)',
+    s:['Law & Constitution','Indian Polity & Constitution','Indian History']},
+];
+
+// ══════════════════════════════════════════════════════════
+//  CORE LOGIC
+// ══════════════════════════════════════════════════════════
+const TQ=100,TT=90*60;
+let xm=null,sb=null,qs=[],ua=new Array(TQ).fill(null);
+let cq=0,vis=new Set([0]),tiv=null,tl=TT,ts=null;
+
+// Shuffle array (Fisher-Yates)
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+// Get 100 questions for selected subject by pulling from QB
+function getQuestions(subjectKey){
+  const pool = QB[subjectKey];
+  if(!pool||pool.length===0) return null;
+  // Shuffle options but keep track of correct answer
+  const withShuffledOpts = pool.map(q=>{
+    const idxMap=[0,1,2,3];
+    shuffle(idxMap); // shuffled positions
+    const newOpts=idxMap.map(i=>q.opts[i]);
+    const newAns=idxMap.indexOf(q.ans);
+    return{q:q.q,opts:newOpts,ans:newAns};
+  });
+  const shuffled=shuffle(withShuffledOpts);
+  // Pad to 100 if needed
+  while(shuffled.length<TQ) shuffled.push(...shuffle(withShuffledOpts).slice(0,TQ-shuffled.length));
+  return shuffled.slice(0,TQ);
+}
+
+// Initialise dropdowns
+function initDD(){
+  const el=document.getElementById('xsel');
+  [...new Set(DB.map(e=>e.c))].forEach(cat=>{
+    const og=document.createElement('optgroup'); og.label='── '+cat+' ──';
+    DB.filter(e=>e.c===cat).forEach(e=>{
+      const o=document.createElement('option'); o.value=e.id; o.textContent=e.n; og.appendChild(o);
+    });
+    el.appendChild(og);
+  });
+}
+function onX(){
+  const id=document.getElementById('xsel').value;
+  const ss=document.getElementById('ssel');
+  ss.innerHTML='';
+  if(!id){ss.disabled=true;ss.innerHTML='<option>— First select an exam —</option>';xm=null;sb=null;updB();return;}
+  xm=DB.find(e=>e.id===id); sb=null; ss.disabled=false;
+  const ph=document.createElement('option'); ph.value=''; ph.textContent='— Choose subject —'; ss.appendChild(ph);
+  xm.s.forEach(s=>{
+    const o=document.createElement('option'); o.value=s;
+    o.textContent=s+(QB[s]?' ('+QB[s].length+' Q bank)':' ⚠ Coming soon');
+    o.disabled=!QB[s];
+    ss.appendChild(o);
+  });
+  updB();
+}
+function onS(){sb=document.getElementById('ssel').value||null;updB();}
+function updB(){document.getElementById('goBtn').disabled=!(xm&&sb&&QB[sb]);}
+
+// Start test
+function begin(){
+  const questions=getQuestions(sb);
+  if(!questions){showE('No questions available for this subject yet.');return;}
+  qs=questions;
+  ua=new Array(TQ).fill(null); cq=0; vis=new Set([0]);
+  tl=TT; ts=Date.now();
+  document.getElementById('ttl').textContent=xm.n;
+  document.getElementById('tsub').textContent='Subject: '+sb+' | '+QB[sb].length+' question pool → 100 random';
+  buildMap(); show('testScr'); renderQ(0); startTimer();
+}
+
+function buildMap(){
+  document.getElementById('qmap').innerHTML=
+    Array.from({length:TQ},(_,i)=>`<div class="qd${i===0?' cu':''}" id="d${i}" onclick="goTo(${i})">${i+1}</div>`).join('');
+}
+
+function renderQ(i){
+  const q=qs[i];
+  document.getElementById('qno').textContent=`Q${i+1} / ${TQ}`;
+  document.getElementById('qtxt').textContent=q.q;
+  const L=['A','B','C','D'];
+  document.getElementById('opts').innerHTML=q.opts.map((o,j)=>
+    `<button class="opt${ua[i]===j?' sl':''}" onclick="pick(${j})"><span class="obdg">${L[j]}</span><span>${o}</span></button>`
+  ).join('');
+  document.getElementById('pb').disabled=i===0;
+  document.getElementById('nb2').disabled=i===TQ-1;
+  document.querySelectorAll('.qd').forEach((d,j)=>{
+    d.className='qd'+(j===i?' cu':ua[j]!==null?' an':'');
+  });
+  updP();
+}
+
+function pick(j){
+  ua[cq]=j;
+  document.querySelectorAll('.opt').forEach((b,k)=>b.classList.toggle('sl',k===j));
+  const d=document.getElementById('d'+cq);
+  if(d){d.classList.remove('cu');d.classList.add('an');}
+  updP();
+}
+function clr(){
+  ua[cq]=null;
+  document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sl'));
+  const d=document.getElementById('d'+cq);
+  if(d){d.classList.remove('an');d.classList.add('cu');}
+  updP();
+}
+function nav(dir){const n=cq+dir;if(n>=0&&n<TQ)goTo(n);}
+function goTo(i){cq=i;vis.add(i);renderQ(i);document.getElementById('d'+i)?.scrollIntoView({block:'nearest'});}
+function updP(){
+  const a=ua.filter(x=>x!==null).length;
+  document.getElementById('pa').textContent=a;
+  document.getElementById('pr').textContent=TQ-a;
+  document.getElementById('pv').textContent=vis.size;
+  document.getElementById('pbar').style.width=(a/TQ*100)+'%';
+}
+
+function startTimer(){
+  clearInterval(tiv);
+  tiv=setInterval(()=>{
+    tl--;
+    if(tl<=0){clearInterval(tiv);doSub();return;}
+    const c=document.getElementById('tchp');
+    c.textContent='⏱ '+fmt(tl);
+    c.className='tchp'+(tl<=300?' d':tl<=600?' w':'');
+  },1000);
+  document.getElementById('tchp').textContent='⏱ '+fmt(tl);
+}
+const fmt=s=>`${pad(Math.floor(s/3600))}:${pad(Math.floor((s%3600)/60))}:${pad(s%60)}`;
+const pad=n=>String(n).padStart(2,'0');
+
+function cfSub(){
+  const u=ua.filter(a=>a===null).length;
+  if(confirm(u?`${u} question(s) unattempted. Submit anyway?`:'Submit the test now?')) doSub();
+}
+function doSub(){clearInterval(tiv);showRes(Math.floor((Date.now()-ts)/1000));}
+
+function showRes(el){
+  let c=0,w=0,sk=0;
+  qs.forEach((q,i)=>{if(ua[i]===null)sk++;else if(ua[i]===q.ans)c++;else w++;});
+  const sc=c*4-w,pct=Math.max(0,Math.round(sc/400*100)),acc=c+w?Math.round(c/(c+w)*100):0;
+  const rf=document.getElementById('rf');
+  rf.style.stroke=pct>=60?'var(--grn)':pct>=40?'var(--gld)':'var(--red)';
+  setTimeout(()=>{rf.style.strokeDashoffset=396-(pct/100)*396;},120);
+  document.getElementById('rpct').textContent=pct+'%';
+  const T=[[80,'🏆 Outstanding!'],[60,'🎯 Good Performance!'],[40,'📚 Keep Practising'],[0,"💪 Don't Give Up!"]];
+  document.getElementById('rtit').textContent=T.find(([v])=>pct>=v)[1];
+  document.getElementById('rmet').textContent=xm.n+' · '+sb;
+  document.getElementById('rcc').textContent=c;
+  document.getElementById('rcw').textContent=w;
+  document.getElementById('rcs').textContent=sk;
+  document.getElementById('rccp').textContent='+'+c*4+' marks';
+  document.getElementById('rcwp').textContent='-'+w+' mark'+(w!==1?'s':'');
+  document.getElementById('sstot').textContent=sc;
+  document.getElementById('ssacc').textContent=acc+'%';
+  document.getElementById('sstm').textContent=fmt(el);
+  const L=['A','B','C','D'];
+  document.getElementById('abdy').innerHTML=qs.map((q,i)=>{
+    const x=ua[i],sk=x===null,ok=!sk&&x===q.ans;
+    const cc=sk?'s':ok?'c':'w',ct=sk?'— Skipped':ok?'✓ Correct':'✗ Wrong';
+    return`<tr>
+      <td style="font-family:'Baloo 2',sans-serif;font-weight:700;color:var(--ink3)">${i+1}</td>
+      <td style="max-width:270px">${q.q}</td>
+      <td>${sk?'<span style="color:var(--ink3)">—</span>':L[x]+') '+q.opts[x]}</td>
+      <td style="color:var(--grn)">${L[q.ans]}) ${q.opts[q.ans]}</td>
+      <td><span class="chip ${cc}">${ct}</span></td>
+    </tr>`;
+  }).join('');
+  show('resScr'); window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function show(id){document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');}
+function showE(m){const b=document.getElementById('eb');b.textContent=m;b.style.display='block';}
+function retake(){
+  document.getElementById('xsel').value='';
+  document.getElementById('ssel').innerHTML='<option>— First select an exam —</option>';
+  document.getElementById('ssel').disabled=true;
+  document.getElementById('goBtn').disabled=true;
+  xm=null;sb=null;qs=[];ua=new Array(TQ).fill(null);cq=0;vis=new Set([0]);
+  show('selScr'); window.scrollTo({top:0,behavior:'smooth'});
+}
+
+initDD();
+</script>
+</body>
+</html>
