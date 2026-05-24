@@ -3,6 +3,15 @@
 > A completely free, offline-capable mock test platform for India's major competitive exams. No sign-up, no API key, no internet required — just open and start practicing.
 
 ---
+> Designed by **Abhishek Singh**
+
+---
+
+## 🚀 Live Demo
+
+> *https://abhhishek2433365.github.io/mock_test_website/*
+
+---
 
 ## 🌟 Features
 
@@ -154,3 +163,9 @@ This project is open-source and free to use under the [MIT License](LICENSE).
 ---
 
 <p align="center">Made for India's competitive exam aspirants · 100% Free · No sign-up required</p>
+
+## 👨‍💻 Authors
+
+- **Abhishek Singh**
+- **GitHub: https://github.com/abhhishek2433365**
+
